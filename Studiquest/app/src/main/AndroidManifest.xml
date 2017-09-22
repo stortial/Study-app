@@ -12,12 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
+        <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        <user-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+        <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAH2FVN0-iafJbGCo-IC9_5CNpj7S4s0OE" />
+            android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainActivity"
-            android:label="Map" >
+        <activity
+            android:name=".MainActivity"
+            android:label="Map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +32,16 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
-        <activity android:name=".Main5Activity"></activity>
+        <activity android:name=".Main5Activity" />
     </application>
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
+
+
+
+
 
 </manifest>
