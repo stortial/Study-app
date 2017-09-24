@@ -5,6 +5,9 @@
     <string name="select_courses">Select Courses</string>
     <string name="create_new_user">Create New User</string>
     <string name="thank_you">Thank you for using StudiQuest</string>
+
+    <string name="find_groups">Create Groups</string>
+
     <string name="title_message">Select Classes</string>
     <string name="CSE">Computer Science</string>
     <string name="BUS">Business</string>
@@ -14,6 +17,7 @@
     <string name="MTH">Mathematics</string>
     <string name="ENGL">English</string>
     <string name="done">Show Selected Items</string>
+
 
 
 </resources>
