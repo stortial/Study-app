@@ -95,6 +95,22 @@
 
     </style>
 
+    <style name="forcheck_box">
+
+        <item name="android:textColor">#ffffff</item>
+
+    </style>
+
+    <style name="button_style66">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/check_box</item>
+
+        <item name="android:layout_height">wrap_content</item>
+        <item name ="android:textColor">#fbfcfd</item>
+
+    </style>
+
+
 
 
     <style name="textView_style1">
