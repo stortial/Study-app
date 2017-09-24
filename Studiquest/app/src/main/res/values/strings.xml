@@ -5,6 +5,11 @@
     <string name="select_courses">Select Courses</string>
     <string name="create_new_user">Create New User</string>
     <string name="thank_you">Thank you for using StudiQuest</string>
+    <string name="title_message">Select Classes</string>
+    <string name="CSE">CSE</string>
+    <string name="BUS">BUS</string>
+    <string name="COM">COM</string>
+    <string name="done">Show Selected Items</string>
 
 
 </resources>
