@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,10 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-        <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-        <user-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-        <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE"/>
+        <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -33,15 +36,7 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main5Activity" />
+        <activity android:name=".Main6Activity"/>
     </application>
-
-    <meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
-
-
-
-
-
 
 </manifest>
