@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import static org.example.amylipsky.myapplication.R.id.button4;
+
 public class Main2Activity  extends AppCompatActivity {
 
 
@@ -53,6 +55,7 @@ public class Main2Activity  extends AppCompatActivity {
 
 
 
+
         Button button6 = (Button) findViewById(R.id.groupss);
         button6.setOnClickListener(new View.OnClickListener() {
 
@@ -62,11 +65,27 @@ public class Main2Activity  extends AppCompatActivity {
                 startActivity(startIntent);
             }
 
+
+        Button button3=(Button) findViewById(button4);
+        button3.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), Click.class);
+                startActivity(startIntent);
+
+
+            }
+
+
+
         });
 
 
 
+
     }
+
 }
 
 
