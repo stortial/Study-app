@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="google_maps">Find Friends Using Google Maps</string>
+    <string name="request_friends">Request</string>
+    <string name="select_courses">Select Courses</string>
+    <string name="create_new_user">Create New User</string>
+    <string name="thank_you">Thank you for using StudiQuest</string>
+
+
+</resources>
