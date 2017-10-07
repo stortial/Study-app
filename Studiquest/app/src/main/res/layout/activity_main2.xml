@@ -47,7 +47,7 @@
 
 
             android:layout_marginTop="13dp"
-            android:text="@string/request_friends" />
+            android:text="@string/create_groups" />
 
         <Button
             android:id="@+id/button3"

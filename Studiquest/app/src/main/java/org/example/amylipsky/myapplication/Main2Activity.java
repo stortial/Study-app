@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import static org.example.amylipsky.myapplication.R.id.button4;
 
+//After GoogleSign In page (4 buttons: maps,logout,classes,groups)
 public class Main2Activity  extends AppCompatActivity {
 
 
