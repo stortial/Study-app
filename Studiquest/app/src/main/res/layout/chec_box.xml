@@ -46,6 +46,34 @@
         android:text="@string/COM"
         style="@style/forcheck_box"
         android:onClick="selectedItem"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_boxx3"
+        android:text="@string/ART"
+        style="@style/forcheck_box"
+        android:onClick="selectedItem"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_boxx4"
+        android:text="@string/PHY"
+        style="@style/forcheck_box"
+        android:onClick="selectedItem"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_boxx5"
+        android:text="@string/MTH"
+        style="@style/forcheck_box"
+        android:onClick="selectedItem"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_boxx6"
+        android:text="@string/ENGL"
+        style="@style/forcheck_box"
+        android:onClick="selectedItem"/>
 
     <Button
         android:layout_width="202dp"

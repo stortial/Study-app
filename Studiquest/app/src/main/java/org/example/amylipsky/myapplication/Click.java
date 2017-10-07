@@ -58,6 +58,42 @@ public class Click extends AppCompatActivity {
 
                 }
                 break;
+            case R.id.check_boxx3:
+
+                if (checked) {
+                    selection.add("ART");
+                } else {
+                    selection.remove("ART");
+
+                }
+                break;
+            case R.id.check_boxx4:
+
+                if (checked) {
+                    selection.add("PHY");
+                } else {
+                    selection.remove("PHY");
+
+                }
+                break;
+            case R.id.check_boxx5:
+
+                if (checked) {
+                    selection.add("MTH");
+                } else {
+                    selection.remove("MTH");
+
+                }
+                break;
+            case R.id.check_boxx6:
+
+                if (checked) {
+                    selection.add("ENGL");
+                } else {
+                    selection.remove("ENGL");
+
+                }
+                break;
 
 
         }

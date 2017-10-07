@@ -60,7 +60,20 @@
             android:text="@string/google_maps" />
 
         <Button
-            android:id="@+id/button4"
+        android:id="@+id/button4"
+        style="@style/button_style"
+
+        android:layout_width="253dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="13dp"
+
+
+        android:text="@string/select_courses" />
+
+
+
+        <Button
+            android:id="@+id/groupss"
             style="@style/button_style"
 
             android:layout_width="253dp"
@@ -79,8 +92,9 @@
             android:layout_height="42dp"
             android:layout_marginTop="13dp"
             android:onClick="signOut"
+                android:text="log out"
 
-            android:text="log out" />
+           
     </LinearLayout>
 
 
