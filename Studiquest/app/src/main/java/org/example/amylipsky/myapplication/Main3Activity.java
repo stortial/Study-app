@@ -2,7 +2,6 @@ package org.example.amylipsky.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 public class Main3Activity extends AppCompatActivity {
 
@@ -13,11 +12,11 @@ public class Main3Activity extends AppCompatActivity {
 
 
         if (getIntent().hasExtra("org.example.amylipsky.myapplication.SOMETHING")) {
-            TextView tv = (TextView) findViewById(R.id.editText);
+            //TextView tv = (TextView) findViewById(R.id.editText);
 
             String text = getIntent().getExtras().getString("org.example.amylipsky.myapplication.SOMETHING");
             //putting text in text view
-            tv.setText(text);
+           // tv.setText(text);
 
         }
 

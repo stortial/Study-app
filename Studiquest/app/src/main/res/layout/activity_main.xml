@@ -40,42 +40,36 @@
             android:layout_margin="5dp"
             android:text="Studiquest" />
 
-        <EditText
-            android:id="@+id/editText2"
-            style="@style/editText_style"
-                android:hint="Email"
-            android:inputType="textPassword" />
-
-        <EditText
-            style="@style/editText_style"
-            android:id="@+id/editText"
-
-                android:hint="Password"
-            android:inputType="textEmailAddress" />
-
-        <Button
-            android:id="@+id/button"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="253dp"
+            android:layout_height="42dp"
             style="@style/button_style"
-
-            android:text="Log In"
+            android:layout_marginTop="13dp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
             />
 
 
-        <TextView
-            android:id="@+id/textView"
-           style="@style/textView_style"
+        <!--<Button-->
+            <!--android:id="@+id/button"-->
+            <!--style="@style/button_style"-->
 
-            android:text="Forgot Your Password?" />
+            <!--android:text="Log In"-->
+            <!--/>-->
 
-        <Button
-            android:id="@+id/NewUser"
-            style="@style/textView_style"
 
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:layout_gravity="bottom"
-            android:background="@android:color/transparent"
-            android:text="New User?" />
+
+
+        <!--<Button-->
+            <!--android:id="@+id/NewUser"-->
+            <!--style="@style/textView_style"-->
+
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:text="New User?" />-->
     </LinearLayout>
 
 </RelativeLayout>

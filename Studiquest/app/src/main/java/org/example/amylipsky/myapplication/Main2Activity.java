@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import static org.example.amylipsky.myapplication.R.id.button4;
 
 public class Main2Activity  extends AppCompatActivity {
@@ -86,6 +88,22 @@ public class Main2Activity  extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+    public void signOut(View v){
+        FirebaseAuth.getInstance().signOut();
+        Intent myIntent = new Intent(Main2Activity.this, MainActivity.class);
+        startActivity(myIntent);
+        finish();
+    }
+
+
+
+
+
 
 }
 
