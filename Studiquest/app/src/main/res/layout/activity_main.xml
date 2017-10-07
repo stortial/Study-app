@@ -38,10 +38,13 @@
             android:id="@+id/textView2"
             style="@style/textView_style"
             android:layout_margin="5dp"
-            android:text="Studiquest" />
+            android:text="Studiquest"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
-        <com.google.android.gms.common.SignInButton
+        <Button
             android:id="@+id/sign_in_button"
+            android:text="Sign in with your Google Account"
             android:layout_width="253dp"
             android:layout_height="42dp"
             style="@style/button_style"
