@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import static org.example.amylipsky.myapplication.R.id.button4;
 
+//After GoogleSign In page (4 buttons: maps,logout,classes,groups)
 public class Main2Activity  extends AppCompatActivity {
 
 
@@ -28,13 +29,13 @@ public class Main2Activity  extends AppCompatActivity {
 //            tv.setText(text);
 //
 //        }
-
+        //create groups class
         Button button1 = (Button) findViewById(R.id.bt2);
         button1.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Main4Activity.class);
+                Intent startIntent = new Intent(getApplicationContext(), DataBase.class);
                 startActivity(startIntent);
 
 
