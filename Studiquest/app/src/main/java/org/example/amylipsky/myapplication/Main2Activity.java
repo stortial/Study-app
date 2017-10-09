@@ -1,23 +1,35 @@
 package org.example.amylipsky.myapplication;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import static org.example.amylipsky.myapplication.R.id.bt2;
 import static org.example.amylipsky.myapplication.R.id.button4;
 
 //After GoogleSign In page (4 buttons: maps,logout,classes,groups)
 public class Main2Activity  extends AppCompatActivity {
 
 
+    private double lat;
+    private double longitude;
+    private String provider;
+    private LocationManager locationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
 
 //
 //
@@ -56,6 +68,19 @@ public class Main2Activity  extends AppCompatActivity {
             }
         });
 
+
+        Button button6 = (Button) findViewById(R.id.groupss);
+        button6.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), Main6Activity.class);
+                startActivity(startIntent);
+            }
+
+
+
+        });
 
 
         Button button3=(Button) findViewById(button4);

@@ -8,6 +8,8 @@
     <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE" />
+    <user-permission android:name="android.permission.REQUEST_FINE_LOCATION" />
+
 
 
 
@@ -22,6 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
 
 
         <meta-data
@@ -41,8 +44,8 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main5Activity" />
-
         <activity android:name=".BaseActivity" />
+
         <activity android:name=".Click" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".DataBase"/>
