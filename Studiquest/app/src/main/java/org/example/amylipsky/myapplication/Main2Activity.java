@@ -58,24 +58,12 @@ public class Main2Activity  extends AppCompatActivity {
 
 
 
-
-
-        Button button6 = (Button) findViewById(R.id.groupss);
-        button6.setOnClickListener(new View.OnClickListener() {
-
-
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Main6Activity.class);
-                startActivity(startIntent);
-            }
-
-
         Button button3=(Button) findViewById(button4);
         button3.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Click.class);
+                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
                 startActivity(startIntent);
 
 
