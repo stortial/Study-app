@@ -19,11 +19,17 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
@@ -223,6 +229,34 @@ public class MainActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
+            final String _User = user.getUid(); //get Uid from Auth
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference userRef = database.getReferenceFromUrl("https://studiquestadam-7f814.firebaseio.com/users");
+            userRef.child(_User).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    if (snapshot.getValue() != null) {
+                        //user exists, do something? do nothing?
+
+                    } else {
+                        //user does not exist, add Uid Auth to RT database
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("users").child(_User).child("Initialize");
+
+                        myRef.setValue("true");
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError arg0) {
+                }
+            });
+
+
+
+
+
+
             //   mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //  mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
