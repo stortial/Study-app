@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.example.amylipsky.myapplication">
 
-<<<<<<< HEAD
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE" />
 
-=======
->>>>>>> 5198d1b565b315660f43a5407e0a3b8d54a57392
+
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -23,12 +22,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
-=======
-        <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-        <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE" />
->>>>>>> 5198d1b565b315660f43a5407e0a3b8d54a57392
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -52,13 +45,10 @@
         <activity android:name=".Click" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".DataBase"/>
+        <activity android:name=".MyClassesActivity" />
     </application>
 
-<<<<<<< HEAD
-=======
-        
 
-    </application>
 
->>>>>>> 5198d1b565b315660f43a5407e0a3b8d54a57392
+
 </manifest>

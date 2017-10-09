@@ -75,11 +75,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "1041240460288-9300id2s2qulg2dg0va8a0cd7t5kc0mq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daniel.studiquest",
+            "certificate_hash": "ff885cc106eafb1943b3322503238229661105e0"
+          }
+        },
+        {
           "client_id": "1041240460288-ogetdofvh7r38d6oe60pg95ra3um7tru.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.daniel.studiquest",
             "certificate_hash": "914b33ef80ab2216ca2cc4386a4564168cd7bf60"
+          }
+        },
+        {
+          "client_id": "1041240460288-tum1tagh5djarla37e4ptd3fperab4mq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daniel.studiquest",
+            "certificate_hash": "a0da1a7c810e961794013df673cd5474ac88c275"
           }
         },
         {

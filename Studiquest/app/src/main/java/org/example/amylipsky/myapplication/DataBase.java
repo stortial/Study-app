@@ -32,68 +32,69 @@ public class DataBase extends AppCompatActivity {
 
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_data_base);
-            mAddToDB = (Button) findViewById(R.id.btnAddNewFood);
-            mNewFood = (EditText) findViewById(R.id.add_new_food);
-            mAuth = FirebaseAuth.getInstance();
-            mFirebaseDatabase = FirebaseDatabase.getInstance();
-            myRef = mFirebaseDatabase.getReference();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_data_base);
+        mAddToDB = (Button) findViewById(R.id.btnAddNewFood);
+        mNewFood = (EditText) findViewById(R.id.add_new_food);
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
 
 
-            myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    Object value = dataSnapshot.getValue();
-                    Log.d(TAG, "Value is: " + value);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Object value = dataSnapshot.getValue();
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //     Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
+        // helpful code for firebase
+        mAddToDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Attempting to add object to database.");
+                String newFood = mNewFood.getText().toString();
+                if (!newFood.equals("")) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    String userId = user.getUid();
+                    myRef.child(userId).child("Food").child("Favorite Foods").child(newFood).setValue(true);
+                    toastMessage("Adding " + newFood + " to database...");
+                    // reset the text
+                    mNewFood.setText("");
                 }
+            }
+        });
+    }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    //     Failed to read value
-                    toastMessage("Failed to alter database.");
-                    Log.w(TAG, "Failed to read value.", databaseError.toException());
-                }
-            });
-            // helpful code for firebase
-            mAddToDB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d(TAG, "onClick: Attempting to add object to database.");
-                    String newFood = mNewFood.getText().toString();
-                    if (!newFood.equals("")) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        String userId = user.getUid();
-                        myRef.child(userId).child("Food").child("Favorite Foods").child(newFood).setValue(true);
-                        toastMessage("Adding " + newFood + " to database...");
-                        // reset the text
-                        mNewFood.setText("");
-                    }
-                }
-            });
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
+    @Override
+    public void onStart() {
+        super.onStart();
 //            mAuth.addAuthStateListener(mAuthListener);
-        }
+    }
 
-        @Override
-        public void onStop() {
-            super.onStop();
+    @Override
+    public void onStop() {
+        super.onStop();
 //       if (mAuthListener != null) {
 //           mAuth.removeAuthStateListener(mAuthListener);
 //        }
-        }
-
-        //add a toast to show when successfully signed in
-
-
-        private void toastMessage(String message) {
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        }
     }
+
+    //add a toast to show when successfully signed in
+
+
+    private void toastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+}
+
 

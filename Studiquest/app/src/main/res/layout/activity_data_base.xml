@@ -17,10 +17,10 @@
 
     <Button
 
-        android:text="Add to database"
-        android:layout_width="match_parent"
+        android:id="@+id/btnAddNewFood"
+        android:layout_width="306dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAddNewFood"/>
+        android:text="Add to database" />
 
 
 </LinearLayout>
