@@ -92,7 +92,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="13dp"
             android:onClick="signOut"
-                android:text="log out"
+                android:text="log out"/>
 
            
     </LinearLayout>

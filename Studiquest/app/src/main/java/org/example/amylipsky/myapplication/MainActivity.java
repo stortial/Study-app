@@ -48,11 +48,6 @@ public class MainActivity extends BaseActivity implements
         setContentView(R.layout.activity_main);
 
 
-//
-//        // Views
-//        mStatusTextView = findViewById(R.id.status);
-        //mDetailTextView = findViewById(R.id.detail);
-
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
       //  findViewById(R.id.sign_out_button).setOnClickListener(this);
@@ -110,25 +105,6 @@ public class MainActivity extends BaseActivity implements
     }
 
 
-//    private void handleSignInResult(GoogleSignInResult result) {
-//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-//        if (result.isSuccess()) {
-//            // Signed in successfully, show authenticated UI.
-//            GoogleSignInAccount acct = result.getSignInAccount();
-//            updateUI(true);
-//
-//            Intent myIntent = new Intent(MainActivity.this, YourClassAfterLogin.class);
-//            startActivity(myIntent);
-//            finish();
-//        } else {
-//            // Signed out, show unauthenticated UI.
-//            updateUI(false);
-//        }
-//    }
-
-
-    // [END onactivityresult]
-
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
@@ -161,29 +137,6 @@ public class MainActivity extends BaseActivity implements
                 });
     }
 
-
-//
-//    // [START handleSignInResult]
-//    private void handleSignInResult(GoogleSignInResult result) {
-//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-//        if (result.isSuccess()) {
-//            // Signed in successfully, show authenticated UI.
-//            GoogleSignInAccount acct = result.getSignInAccount();
-//            updateUI(null);
-//
-//            Intent myIntent = new Intent(GoogleSignIn.this, AddItemsToDatabase.class);
-//            startActivity(myIntent);
-//            finish();
-//        } else {
-//            // Signed out, show unauthenticated UI.
-//            updateUI(null);
-//
-//
-//        }
-//    }
-
-
-    // [END auth_with_google]
 
     // [START signin]
     private void signIn() {
