@@ -80,7 +80,10 @@
             android:layout_marginTop="13dp"
             android:onClick="signOut"
                 android:text="log out"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 
            
     </LinearLayout>

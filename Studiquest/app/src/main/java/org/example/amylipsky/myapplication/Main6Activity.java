@@ -49,6 +49,7 @@ public class Main6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
+<<<<<<< HEAD
 
         _Course = (EditText) findViewById(R.id.editText10);
         _StartTime = (EditText) findViewById(R.id.editText12);
@@ -184,3 +185,6 @@ public class Main6Activity extends AppCompatActivity {
 }
 
 
+=======
+    }}
+>>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
