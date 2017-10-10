@@ -19,7 +19,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,10 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-<<<<<<< HEAD
 import com.google.firebase.database.Query;
-=======
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 import com.google.firebase.database.ValueEventListener;
 
 /**
@@ -58,10 +54,15 @@ public class MainActivity extends BaseActivity implements
         setContentView(R.layout.activity_main);
 
 
+//
+//        // Views
+//        mStatusTextView = findViewById(R.id.status);
+        //mDetailTextView = findViewById(R.id.detail);
+
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-      //  findViewById(R.id.sign_out_button).setOnClickListener(this);
-      //  findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //  findViewById(R.id.sign_out_button).setOnClickListener(this);
+        //  findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START config_signin]
         // Configure Google Sign In
@@ -115,6 +116,25 @@ public class MainActivity extends BaseActivity implements
     }
 
 
+//    private void handleSignInResult(GoogleSignInResult result) {
+//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+//        if (result.isSuccess()) {
+//            // Signed in successfully, show authenticated UI.
+//            GoogleSignInAccount acct = result.getSignInAccount();
+//            updateUI(true);
+//
+//            Intent myIntent = new Intent(MainActivity.this, YourClassAfterLogin.class);
+//            startActivity(myIntent);
+//            finish();
+//        } else {
+//            // Signed out, show unauthenticated UI.
+//            updateUI(false);
+//        }
+//    }
+
+
+    // [END onactivityresult]
+
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
@@ -148,7 +168,6 @@ public class MainActivity extends BaseActivity implements
     }
 
 
-<<<<<<< HEAD
 
 
 
@@ -175,8 +194,6 @@ public class MainActivity extends BaseActivity implements
 
     // [END auth_with_google]
 
-=======
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
     // [START signin]
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -215,7 +232,6 @@ public class MainActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-<<<<<<< HEAD
             final String _User = user.getUid();
 
             /*FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -236,38 +252,6 @@ public class MainActivity extends BaseActivity implements
             });*/
 
 
-=======
-            final String _User = user.getUid(); //get Uid from Auth
-
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference userRef = database.getReferenceFromUrl("https://studiquestadam-7f814.firebaseio.com/users");
-            userRef.child(_User).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot snapshot) {
-                    if (snapshot.getValue() != null) {
-                        //user exists, do something? do nothing?
-
-                    } else {
-                        //user does not exist, add Uid Auth to RT database
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("users").child(_User).child("Initialize");
-
-                        myRef.setValue("true");
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError arg0) {
-                }
-            });
-
-
-
-
-
-
-            //   mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
-            //  mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 
             Intent myIntent = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(myIntent);

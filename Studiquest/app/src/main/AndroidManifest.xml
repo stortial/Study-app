@@ -8,14 +8,8 @@
     <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <user-permission android:name="android.permission.WRINT_EXTERNAL_STORAGE" />
-    <user-permission android:name="android.permission.REQUEST_FINE_LOCATION" />
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -28,11 +22,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -51,22 +40,15 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main5Activity" />
-        <activity android:name=".BaseActivity" />
 
+        <activity android:name=".BaseActivity" />
         <activity android:name=".Click" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".DataBase"/>
-<<<<<<< HEAD
         <activity android:name=".MyClassesActivity" />
     </application>
 
 
 
 
-=======
-        <activity android:name=".MyClassesActivity"/>
-    </application>
-
-
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
 </manifest>
