@@ -81,6 +81,7 @@
             android:onClick="signOut"
                 android:text="log out"/>
 
+
            
     </LinearLayout>
 

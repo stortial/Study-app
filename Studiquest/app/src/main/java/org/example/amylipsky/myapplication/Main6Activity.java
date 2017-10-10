@@ -125,9 +125,6 @@ public class Main6Activity extends AppCompatActivity {
         });
 
 
-
-
-
         //add a toast to show when successfully signed in
         Button btnCapen = (Button) findViewById(R.id.capen);
 
@@ -135,7 +132,8 @@ public class Main6Activity extends AppCompatActivity {
 
         {
             public void onClick (View v){
-                Intent startIntent = new Intent(getApplicationContext(), Capen.class);
+
+                //Intent startIntent = new Intent(getApplicationContext(), Capen.class);
                 locationID = "Capen";
                 groupRef.child(groupID).child("locations").setValue(locationID);
             }
@@ -149,7 +147,8 @@ public class Main6Activity extends AppCompatActivity {
 
             public void onClick(View view){
 
-                Intent startIntent = new Intent(getApplicationContext(), LockWood.class);
+
+                //Intent startIntent = new Intent(getApplicationContext(), LockWood.class);
                 locationID = "Lockwood";
                 groupRef.child(groupID).child("locations").setValue(locationID);
             }
@@ -162,19 +161,13 @@ public class Main6Activity extends AppCompatActivity {
 
             public void onClick(View view){
                 Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
+                //Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
                 locationID = "Student Union";
                 groupRef.child(groupID).child("location").setValue(locationID);
             }
         });
 
-
-
-
     }
-
-
-
-
 
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

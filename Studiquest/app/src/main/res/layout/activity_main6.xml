@@ -42,10 +42,6 @@
             android:inputType="textPersonName"
             android:textSize="19sp" />
 
-
-
-
-
         <EditText
             android:hint="Start Time"
             android:id="@+id/editText12"

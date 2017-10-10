@@ -58,6 +58,7 @@ public class Main2Activity  extends AppCompatActivity {
 
 
 
+        //create groups
         Button button3=(Button) findViewById(button4);
         button3.setOnClickListener(new View.OnClickListener() {
 
@@ -78,10 +79,6 @@ public class Main2Activity  extends AppCompatActivity {
 
     }
 
-
-
-
-
     public void signOut(View v){
         FirebaseAuth.getInstance().signOut();
         Intent myIntent = new Intent(Main2Activity.this, MainActivity.class);
@@ -95,30 +92,3 @@ public class Main2Activity  extends AppCompatActivity {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

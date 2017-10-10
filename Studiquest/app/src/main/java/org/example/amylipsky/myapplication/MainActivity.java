@@ -19,7 +19,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 /**
@@ -61,8 +61,8 @@ public class MainActivity extends BaseActivity implements
 
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-      //  findViewById(R.id.sign_out_button).setOnClickListener(this);
-      //  findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //  findViewById(R.id.sign_out_button).setOnClickListener(this);
+        //  findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START config_signin]
         // Configure Google Sign In
@@ -168,6 +168,9 @@ public class MainActivity extends BaseActivity implements
     }
 
 
+
+
+
 //
 //    // [START handleSignInResult]
 //    private void handleSignInResult(GoogleSignInResult result) {
@@ -229,36 +232,26 @@ public class MainActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            final String _User = user.getUid(); //get Uid from Auth
+            final String _User = user.getUid();
 
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference userRef = database.getReferenceFromUrl("https://studiquestadam-7f814.firebaseio.com/users");
-            userRef.child(_User).addListenerForSingleValueEvent(new ValueEventListener() {
+            /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference ref = database.getReference("users");
+
+            ref.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot snapshot) {
-                    if (snapshot.getValue() != null) {
-                        //user exists, do something? do nothing?
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (dataSnapshot : ref.getRef("users")){
 
-                    } else {
-                        //user does not exist, add Uid Auth to RT database
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("users").child(_User).child("Initialize");
-
-                        myRef.setValue("true");
                     }
                 }
+
                 @Override
-                public void onCancelled(DatabaseError arg0) {
+                public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value."), databaseError.toException());
                 }
-            });
+            });*/
 
 
-
-
-
-
-            //   mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
-            //  mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             Intent myIntent = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(myIntent);
@@ -273,6 +266,15 @@ public class MainActivity extends BaseActivity implements
             //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
+
+   /* public boolean isCurrentUserRegistered(FirebaseUser user)
+    {
+        String _User = user.getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users");
+        Query query;
+        if (query.equalTo(_User) == _User)
+    }*/
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

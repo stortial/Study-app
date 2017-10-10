@@ -75,14 +75,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "1041240460288-p4k1knt9o9or9qpatpm336t7890r1sgq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.daniel.studiquest",
-            "certificate_hash": "222fd14444a0bb8ad6afef1719be86846c46b5c1"
-          }
-        },
-        {
           "client_id": "1041240460288-9300id2s2qulg2dg0va8a0cd7t5kc0mq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -23,7 +23,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -46,8 +45,10 @@
         <activity android:name=".Click" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".DataBase"/>
-        <activity android:name=".MyClassesActivity"/>
+        <activity android:name=".MyClassesActivity" />
     </application>
+
+
 
 
 </manifest>
