@@ -70,9 +70,15 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         groupKey = groupRef.push();
         groupID = groupKey.getKey();
 
+        //database.
+
+        groupRef.
 
 
-        groupRef.addValueEventListener(new ValueEventListener() {
+
+
+
+        /*groupRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                /* getLocation = dataSnapshot.child(groupID).child("locations");
@@ -85,115 +91,36 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
                 System.out.println("START" + getStart);
                 System.out.println("END" + getEnd);
                 System.out.println("NUM" + getnumppl);*/
-
-
-
                 //get the marker position
-                Random rand = new Random();
+                //Random rand = new Random();
 
-                if (getLocation == "Capen") {
-                    longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
-                    lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
-                } else if (getLocation == "Lockwood") {
-                    longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
-                    lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
-                } else if (getLocation == "SU") {
-                    longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
-                    lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
-                }
-                LatLng loopPlace = new LatLng(lat, longitude);
-
-
-                mMap.addMarker(new MarkerOptions().position(loopPlace)
-                        .title(" ")
-                        .snippet(getCourse+"   "+getStart+"   "+getEnd+"   "+getnumppl));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-       /* locationmarkerRef.orderByKey().addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-               locationkey.add(dataSnapshot.getKey());
-                System.out.println("******"+locationkey.size());
+                //if (getLocation == "Capen") {
+                   // longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
+                 //   lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
+               // } else if (getLocation == "Lockwood") {
+                    //longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
+                  //  lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+                //} else if (getLocation == "SU") {
+                  //  longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
+                 //   lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
+                //}
+                //LatLng loopPlace = new LatLng(lat, longitude);
 
 
-            }
+               // mMap.addMarker(new MarkerOptions().position(loopPlace)
+                //        .title(" ")
+              //          .snippet(getCourse+"   "+getStart+"   "+getEnd+"   "+getnumppl));
+            //}
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            //@Override
+            //public void onCancelled(DatabaseError databaseError) {
 
-            }
+          //  }
+        /*}*/
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("Firebaselocationmarker", "failed");
-            }
-
-        });*/
-        System.out.println("HELLO" + locationkey.size());
-
-        /*Iterator<String> it = locationkey.iterator();
-        while (it.hasNext()){
-            System.out.println(it.next());
-        }
-
-        for(int j=0; j<=locationkey.size(); ++j)
-        {
-            System.out.println("IN LOOP");
-
-            System.out.println(locationkey.size());
-            String temptemp = locationkey.toString();
-            System.out.println(temptemp);
-        }*/
-
-
-        /*for(int i=0; i<=locationkey.size(); i++){
-            System.out.println("CHILD BLA BLA");
-            String stringlocationkey = locationkey.get(0);
-            System.out.println(stringlocationkey);
-            locationmarkerChildRef = database.getReference("location marker").child(stringlocationkey);
-            System.out.println("CHILD BLA");
-            locationmarkerChildRef.addValueEventListener(new ValueEventListener() {
-
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    String value = dataSnapshot.getValue(String.class);
-                    System.out.println(value);
-                    locationlist.add(value);
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });*/
-
-
-
+        ;
 
     }
-
-
-      /*  for(int i=0; i<3; i++){
-            String temp = locationlist.get(i);
-            System.out.println(temp);
-        }
-    }*/
 
     private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.99262, -78.799561),
             new LatLng(43.012405, -78.770156));
