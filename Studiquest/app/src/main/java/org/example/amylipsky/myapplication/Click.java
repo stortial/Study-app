@@ -14,9 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-/**
- * Created by amylipsky on 9/23/17.
- */
 //allows us to check off textboxes of what classes we are in
 public class Click extends AppCompatActivity {
     ArrayList<String> selection = new ArrayList<String>();

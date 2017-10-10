@@ -35,7 +35,7 @@ public class Main2Activity  extends AppCompatActivity {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), DataBase.class);
+                Intent startIntent = new Intent(getApplicationContext(), Main6Activity.class);
                 startActivity(startIntent);
 
 
