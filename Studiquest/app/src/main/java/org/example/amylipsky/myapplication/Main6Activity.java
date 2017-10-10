@@ -49,7 +49,6 @@ public class Main6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
-<<<<<<< HEAD
 
         _Course = (EditText) findViewById(R.id.editText10);
         _StartTime = (EditText) findViewById(R.id.editText12);
@@ -125,57 +124,45 @@ public class Main6Activity extends AppCompatActivity {
             }
         });
 
+        //add a toast to show when successfully signed in
+        Button btnCapen = (Button) findViewById(R.id.capen);
+
+        btnCapen.setOnClickListener(new View.OnClickListener()
+
+        {
+            public void onClick (View v){
+                //Intent startIntent = new Intent(getApplicationContext(), Capen.class);
+                locationID = "Capen";
+                groupRef.child(groupID).child("locations").setValue(locationID);
+            }
+
+        });
+
+        Button btnLockwood = (Button) findViewById(R.id.lockwood);
+
+        btnLockwood.setOnClickListener(new View.OnClickListener(){
 
 
+            public void onClick(View view){
 
+                //Intent startIntent = new Intent(getApplicationContext(), LockWood.class);
+                locationID = "Lockwood";
+                groupRef.child(groupID).child("locations").setValue(locationID);
+            }
+        });
 
-    //add a toast to show when successfully signed in
-    Button btnCapen = (Button) findViewById(R.id.capen);
-
-    btnCapen.setOnClickListener(new View.OnClickListener()
-
-    {
-        public void onClick (View v){
-        Intent startIntent = new Intent(getApplicationContext(), Capen.class);
-          locationID = "Capen";
-            groupRef.child(groupID).child("locations").setValue(locationID);
-    }
-
-    });
-
-    Button btnLockwood = (Button) findViewById(R.id.lockwood);
-
-    btnLockwood.setOnClickListener(new View.OnClickListener(){
-
-
-        public void onClick(View view){
-
-            Intent startIntent = new Intent(getApplicationContext(), LockWood.class);
-            locationID = "Lockwood";
-            groupRef.child(groupID).child("locations").setValue(locationID);
-        }
-    });
-
-    Button btnSU = (Button) findViewById(R.id.StudentUnion);
+        Button btnSU = (Button) findViewById(R.id.StudentUnion);
 
         btnSU.setOnClickListener(new View.OnClickListener(){
 
 
             public void onClick(View view){
-                Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
+                //Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
                 locationID = "Student Union";
                 groupRef.child(groupID).child("location").setValue(locationID);
             }
         });
-
-
-
-
     }
-
-
-
-
 
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -184,7 +171,3 @@ public class Main6Activity extends AppCompatActivity {
 
 }
 
-
-=======
-    }}
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a

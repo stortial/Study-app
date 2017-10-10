@@ -22,7 +22,7 @@ public class DataBase extends AppCompatActivity {
 
     private Button mAddToDB;
 
-    private EditText classs, numberofppl;
+    private EditText mNewFood;
 
     //add Firebase Database stuff
     private FirebaseDatabase mFirebaseDatabase;
@@ -37,12 +37,6 @@ public class DataBase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_base);
         mAddToDB = (Button) findViewById(R.id.btnAddNewFood);
-<<<<<<< HEAD
-        mNewFood = (EditText) findViewById(R.id.add_new_food);
-=======
-        classs = (EditText) findViewById(R.id.class_c);
-        numberofppl = (EditText) findViewById(R.id.number_ofppl);
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
@@ -67,7 +61,6 @@ public class DataBase extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Attempting to add object to database.");
-<<<<<<< HEAD
                 String newFood = mNewFood.getText().toString();
                 if (!newFood.equals("")) {
                     FirebaseUser user = mAuth.getCurrentUser();
@@ -76,19 +69,6 @@ public class DataBase extends AppCompatActivity {
                     toastMessage("Adding " + newFood + " to database...");
                     // reset the text
                     mNewFood.setText("");
-=======
-                String classes = classs.getText().toString();
-                String numberofppll = numberofppl.getText().toString();
-
-                if (!classes.equals("")) {
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    String userId = user.getUid();
-                    myRef.child(userId).child("groups/class").setValue(classes);
-                    myRef.child(userId).child("groups/numberofppl").setValue(numberofppll);
-                    toastMessage("Adding " + classes + " to database...");
-                    // reset the text
-                    classs.setText("");
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
                 }
             }
         });
@@ -114,10 +94,5 @@ public class DataBase extends AppCompatActivity {
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-<<<<<<< HEAD
 }
 
-
-=======
-}
->>>>>>> 40de32eca3915f322ff579edb9c6b2f67346040a
