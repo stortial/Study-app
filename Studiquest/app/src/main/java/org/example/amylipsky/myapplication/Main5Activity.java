@@ -172,6 +172,22 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
 
 
+
+        
+
+        for(int i = 0; i<location_list.size(); ++i) {
+            if (getLocation == "Capen") {
+             longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
+               lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
+             } else if (getLocation == "Lockwood") {
+            longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
+              lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+            } else if (getLocation == "SU") {
+              longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
+               lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
+            }
+
+        }
     }
 }
 
