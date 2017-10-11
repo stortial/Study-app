@@ -72,7 +72,6 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
         //database.
 
-        groupRef.
 
 
 
