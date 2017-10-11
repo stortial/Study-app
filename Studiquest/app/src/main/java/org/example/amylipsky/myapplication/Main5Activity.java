@@ -1,6 +1,7 @@
 package org.example.amylipsky.myapplication;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -17,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -52,6 +54,10 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     private ArrayList<String> startlist = new ArrayList<String>();
     private ArrayList<String> endlist = new ArrayList<String>();
     private ArrayList<String> ppllist = new ArrayList<String>();
+    private ArrayList<Marker> theMarkers = new ArrayList<Marker>();
+    private Handler UI_Handler = new Handler();
+
+
 
     private static final String TAG = "DataBase";
 
@@ -94,8 +100,8 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
                 startlist.add(getStart);
                 endlist.add(getEnd);
                 ppllist.add(getnumppl);
-                System.out.println("Location***** " + getLocation);
-                System.out.println("course***** " + getCourse);
+                //System.out.println("Location***** " + getLocation);
+                //System.out.println("course***** " + getCourse);
 
             }
 
@@ -119,7 +125,7 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
             }
 
         });
-        System.out.println("HELLO" + locationkey.size());
+        //System.out.println("HELLO" + locationkey.size());
 
     }
 
@@ -155,15 +161,15 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        //mMap.setLatLngBoundsForCameraTarget(UniversityAtBuffalo);
+        mMap.setLatLngBoundsForCameraTarget(UniversityAtBuffalo);
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(UniversityAtBuffalo, 17));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UniversityAtBuffalo.getCenter(), 17));
 
-        LatLng test = new LatLng(43.001268, -78.789202);
+        //LatLng test = new LatLng(43.001268, -78.789202);
 
-        Marker tester = mMap.addMarker(new MarkerOptions().position(test).title(" ").snippet("Capen CSE 3:00pm 6:00pm 5"));
+        //Marker tester = mMap.addMarker(new MarkerOptions().position(test).title(" ").snippet("Capen CSE 3:00pm 6:00pm 5"));
 
         // Add a marker in Sydney and move the camera
         LatLng buffalo = new LatLng(43, -78.7865);
@@ -171,24 +177,81 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         mMap.moveCamera(CameraUpdateFactory.newLatLng(buffalo));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
 
+        UI_Handler.postDelayed(UI_UPDATE_RUNNABLE, 5000);
+
+        Random rand = new Random();
+
+        System.out.println(location_list.size());
 
 
-        
+        /*for(int i = 0; i<location_list.size(); ++i) {
 
-        for(int i = 0; i<location_list.size(); ++i) {
-            if (getLocation == "Capen") {
+            System.out.println(location_list.get(i));
+
+            if (location_list.get(i) == "Capen") {
              longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
                lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
-             } else if (getLocation == "Lockwood") {
+             } else if (location_list.get(i)== "Lockwood") {
             longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
               lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
-            } else if (getLocation == "SU") {
+            } else if (location_list.get(i)== "SU") {
               longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
                lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
             }
 
-        }
+            LatLng temp = new LatLng(lat, longitude);
+
+            //here is where i add the actual stuff
+            Marker test = mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                    getLocation+" "+getCourse+" "+getStart+" "+getEnd+" "+ getnumppl));
+
+            theMarkers.add(test);
+        }*/
     }
+
+    Runnable UI_UPDATE_RUNNABLE = new Runnable() {
+
+        @Override
+        public void run() {
+
+            theMarkers.clear();
+
+            Random rand = new Random();
+
+            System.out.println(location_list.size());
+
+
+            for(int i = 0; i<location_list.size(); ++i) {
+
+                System.out.println(location_list.get(i));
+
+                if (location_list.get(i) == "Capen") {
+                    longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
+                    lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
+                } else if (location_list.get(i)== "Lockwood") {
+                    longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
+                    lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+                } else if (location_list.get(i)== "SU") {
+                    longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
+                    lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
+                }
+
+                LatLng temp = new LatLng(lat, longitude);
+
+                //here is where i add the actual stuff
+                Marker test = mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                        getLocation+" "+getCourse+" "+getStart+" "+getEnd+" "+ getnumppl));
+
+                theMarkers.add(test);
+
+                }
+
+            UI_Handler.postDelayed(UI_UPDATE_RUNNABLE, 30000);
+
+        };
+
+
+    };
 }
 
 
