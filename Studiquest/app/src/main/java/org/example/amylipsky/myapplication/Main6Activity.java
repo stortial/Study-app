@@ -18,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 import static android.R.id.message;
 import static org.example.amylipsky.myapplication.R.id.StudentUnion;
 import static org.example.amylipsky.myapplication.R.id.button4;
@@ -57,13 +59,13 @@ public class Main6Activity extends AppCompatActivity {
         Button buttonAddGroup = (Button) findViewById(R.id.AddGroup);
 
         database = FirebaseDatabase.getInstance();
-        initialize = database.getReference("groups").child("Initialize Group");
-        initialize.setValue("true");
+         // initialize = database.getReference("groups").child("Initialize Group");
+        //initialize.setValue("true");
         groupRef = database.getReference("groups");
         groupKey = groupRef.push();
         groupID = groupKey.getKey();
 
-        initializelocation = database.getReference("groups").child(groupID).child("locations");
+        /*initializelocation = database.getReference("groups").child(groupID).child("locations");
         locationKey = initializelocation.push();
         locationID = locationKey.getKey();
         locationKey.setValue("Coordinate");      //<<<<<<<Change
@@ -71,7 +73,7 @@ public class Main6Activity extends AppCompatActivity {
 
         //Send coordinates to location marker tree
         locationMarker = database.getReference("location marker").child(locationID);
-        locationMarker.setValue("Coordinate in marker tree");         //<<<<<<<Change
+        locationMarker.setValue("Coordinate in marker tree");  */       //<<<<<<<Change
 
         groupRef.addValueEventListener(new ValueEventListener() {
             @Override

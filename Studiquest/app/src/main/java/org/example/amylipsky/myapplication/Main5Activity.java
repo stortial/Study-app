@@ -46,7 +46,12 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     private double longitude = 0;
     private double lat = 0;
     ArrayList<String> locationkey = new ArrayList<String>();
-    ArrayList<String> locationlist = new ArrayList<String>();
+    //ArrayList<String> locationlist = new ArrayList<String>();
+    private ArrayList<String> location_list = new ArrayList<String>();
+    private ArrayList<String> courselist = new ArrayList<String>();
+    private ArrayList<String> startlist = new ArrayList<String>();
+    private ArrayList<String> endlist = new ArrayList<String>();
+    private ArrayList<String> ppllist = new ArrayList<String>();
 
     private static final String TAG = "DataBase";
 
@@ -71,10 +76,53 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         groupID = groupKey.getKey();
 
 
+
         //database.
 
+        groupRef.orderByKey().addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                getLocation = dataSnapshot.child("locations").getValue().toString();
+                getCourse = dataSnapshot.child("course").getValue().toString();
+                getStart = dataSnapshot.child("starttime").getValue().toString();
+                getEnd = dataSnapshot.child("endtime").getValue().toString();
+                getnumppl = dataSnapshot.child("numppl").getValue().toString();
+
+                location_list.add(getLocation);
+                courselist.add(getCourse);
+                startlist.add(getStart);
+                endlist.add(getEnd);
+                ppllist.add(getnumppl);
+                System.out.println("Location***** " + getLocation);
+                System.out.println("course***** " + getCourse);
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("Firebaselocationmarker", "failed");
+            }
+
+        });
+        System.out.println("HELLO" + locationkey.size());
 
     }
+
 
     /*groupRef.addValueEventListener(new ValueEventListener() {
 
