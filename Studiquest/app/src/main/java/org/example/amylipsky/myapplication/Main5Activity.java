@@ -71,25 +71,22 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         groupID = groupKey.getKey();
 
 
-
         //database.
 
 
+    }
+
+    /*groupRef.addValueEventListener(new ValueEventListener() {
 
 
-
-
-        /*groupRef.addValueEventListener(new ValueEventListener() {
-
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-               /* getLocation = dataSnapshot.child(groupID).child("locations");
-               getCourse = dataSnapshot.child("course").getValue().toString();
-                getStart = dataSnapshot.child("starttime").getValue().toString();
-                getEnd = dataSnapshot.child("endtime").getValue().toString();
-                getnumppl = dataSnapshot.child("numppl").getValue().toString();*/
-                //System.out.println("LOCATION****"+getLocation);
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+           /* getLocation = dataSnapshot.child(groupID).child("locations");
+           getCourse = dataSnapshot.child("course").getValue().toString();
+            getStart = dataSnapshot.child("starttime").getValue().toString();
+            getEnd = dataSnapshot.child("endtime").getValue().toString();
+            getnumppl = dataSnapshot.child("numppl").getValue().toString();*/
+    //System.out.println("LOCATION****"+getLocation);
                 /*System.out.println("COURSE" + getCourse);
                 System.out.println("START" + getStart);
                 System.out.println("END" + getEnd);
@@ -128,6 +125,6 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
 
     }
-
-
 }
+
+
