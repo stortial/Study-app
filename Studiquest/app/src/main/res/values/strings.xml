@@ -25,7 +25,7 @@
     <string name="CDS">Communicative Disorders and Sci</string>
     <string name="ChemicalEngineering">Chemical Engineering</string>
     <string name="CEP">Counseling, School and Ed Psych</string>
-    <string name= "Chemistry">Chemistry</string>
+    <string name="Chemistry">Chemistry</string>
     <string name="Chinese">Chinese</string>
     <string name="CivilEngineering">Civil Engineering</string>
     <string name="Classics">Classics</string>
@@ -115,6 +115,8 @@
     <string name="Yiddish">Yiddish</string>
     <string name="done">Show Selected Items</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

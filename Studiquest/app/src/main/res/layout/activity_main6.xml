@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main2"
-    android:paddingBottom="100dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center"
     android:layout_alignParentBottom="true"
     tools:context="org.example.amylipsky.myapplication.MainActivity"
     android:background="@drawable/back">
@@ -17,7 +14,7 @@
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="400dp"
+        android:layout_width="wrap_content"
         android:orientation="vertical"
 
         android:layout_height="wrap_content"
@@ -79,7 +76,7 @@
 
             android:id="@+id/capen"
             style="@style/button_style"
-            android:layout_width="261dp"
+            android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Capen" />
 
@@ -88,7 +85,7 @@
 
             android:id="@+id/lockwood"
             style="@style/button_style"
-            android:layout_width="261dp"
+            android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Lockwood" />
 
@@ -97,7 +94,7 @@
 
             android:id="@+id/AddGroup"
             style="@style/button_style"
-            android:layout_width="261dp"
+            android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Create Group" />
 
@@ -105,7 +102,7 @@
 
             android:id="@+id/StudentUnion"
             style="@style/button_style"
-            android:layout_width="261dp"
+            android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Student Union" />
 

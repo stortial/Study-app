@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="40dp"
-            android:layout_weight="0.32dp"
+
 
 
             android:adjustViewBounds="true"
