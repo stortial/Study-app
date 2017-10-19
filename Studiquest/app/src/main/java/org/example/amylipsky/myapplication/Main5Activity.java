@@ -70,57 +70,26 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         groupKey = groupRef.push();
         groupID = groupKey.getKey();
 
-        //database.
 
 
 
+    }
+
+    /*groupRef.addValueEventListener(new ValueEventListener() {
 
 
-
-        /*groupRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-               /* getLocation = dataSnapshot.child(groupID).child("locations");
-               getCourse = dataSnapshot.child("course").getValue().toString();
-                getStart = dataSnapshot.child("starttime").getValue().toString();
-                getEnd = dataSnapshot.child("endtime").getValue().toString();
-                getnumppl = dataSnapshot.child("numppl").getValue().toString();*/
-                //System.out.println("LOCATION****"+getLocation);
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+           /* getLocation = dataSnapshot.child(groupID).child("locations");
+           getCourse = dataSnapshot.child("course").getValue().toString();
+            getStart = dataSnapshot.child("starttime").getValue().toString();
+            getEnd = dataSnapshot.child("endtime").getValue().toString();
+            getnumppl = dataSnapshot.child("numppl").getValue().toString();*/
+    //System.out.println("LOCATION****"+getLocation);
                 /*System.out.println("COURSE" + getCourse);
                 System.out.println("START" + getStart);
                 System.out.println("END" + getEnd);
                 System.out.println("NUM" + getnumppl);*/
-                //get the marker position
-                //Random rand = new Random();
-
-                //if (getLocation == "Capen") {
-                   // longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
-                 //   lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
-               // } else if (getLocation == "Lockwood") {
-                    //longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
-                  //  lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
-                //} else if (getLocation == "SU") {
-                  //  longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
-                 //   lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
-                //}
-                //LatLng loopPlace = new LatLng(lat, longitude);
-
-
-               // mMap.addMarker(new MarkerOptions().position(loopPlace)
-                //        .title(" ")
-              //          .snippet(getCourse+"   "+getStart+"   "+getEnd+"   "+getnumppl));
-            //}
-
-            //@Override
-            //public void onCancelled(DatabaseError databaseError) {
-
-          //  }
-        /*}*/
-
-        ;
-
-    }
-
     private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.99262, -78.799561),
             new LatLng(43.012405, -78.770156));
 
@@ -155,6 +124,6 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
 
     }
-
-
 }
+
+
