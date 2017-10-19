@@ -71,7 +71,6 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         groupID = groupKey.getKey();
 
 
-        //database.
 
 
     }
