@@ -18,6 +18,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import java.util.concurrent.TimeUnit;
+
 //Google Maps Class
 public class Main5Activity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -54,11 +56,11 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
             mapFragment.getMapAsync(this);
         }
+        else{
+            mMap = null;
+            mapSetup();
+        }
     }
-
-    //creates the bounds for both the center of the map and the bounds
-    private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.99262, -78.799561),
-            new LatLng(43.012405, -78.770156));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,12 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         FirebaseDatabase.getInstance().getReference().child("groups").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                location_list.clear();
+                courselist.clear();
+                startlist.clear();
+                endlist.clear();
+                ppllist.clear();
 
                 //iterate through all children of groups
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
@@ -101,7 +109,18 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
             }
         });
 
-        mapSetup();
+        //delay the program for 5 seconds
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
     }
 
     /**
@@ -113,26 +132,25 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
         mMap = googleMap;
 
-        //mMap.setLatLngBoundsForCameraTarget(UniversityAtBuffalo);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UniversityAtBuffalo.getCenter(), 17));
-
-
+        //zooms the map in on UB and sets boundries
         LatLng buffalo = new LatLng(43, -78.7865);
-        //mMap.addMarker(new MarkerOptions().position(buffalo).title("Marker in Buffalo"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(buffalo));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
 
+        //used to create random number
+        //  NOTE NOT SEEDED
         Random rand = new Random();
-
 
         //clear all the markers from the map
         //mMap.clear();
 
+        //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
 
             System.out.println("ADAM"+location_list.get(i));
 
+            //determines lat and lng for location
+            //  NOTE, always goes to default for some reason
             if (location_list.get(i) == "Capen") {
                  longitude = -78.789966 + ( -78.789202 + 78.789966) * rand.nextDouble();
                  lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
@@ -141,7 +159,7 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
                 longitude = -78.786336 + ( -78.785688+ 78.786336 ) * rand.nextDouble();
                 lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
             }
-            else //(location_list.get(i)== "SU") {
+            else //if (location_list.get(i)== "SU") {
             {
                 longitude = -78.786780 + ( -78.785832 + 78.786780) * rand.nextDouble();
                 lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
@@ -150,21 +168,12 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
             //set the temp lat and lng for the current marker
             LatLng temp = new LatLng(lat, longitude);
 
-            System.out.println("AdAM"+lat+" "+longitude);
-
-            //here is where i add the actual stuff
+            //create the actual marker using provided info
             mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
                     location_list.get(i)+" "+courselist.get(i)+" "+startlist.get(i)+" "+endlist.get(i)+" "+ ppllist.get(i)));
 
         }
 
-    }
-
-    //recreate the map, but this is done with the static array lists
-    @Override
-    public void onResume(){
-        super.onResume();
-        mapSetup();
     }
 
 }
