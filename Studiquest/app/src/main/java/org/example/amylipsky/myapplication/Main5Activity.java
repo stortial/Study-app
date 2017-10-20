@@ -1,7 +1,6 @@
 package org.example.amylipsky.myapplication;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,55 +11,20 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Random;
-
 import java.util.concurrent.TimeUnit;
 
 //Google Maps Class
 public class Main5Activity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-    private String val;
-    private FirebaseDatabase database;
-    private DatabaseReference locationmarkerRef;
-    private DatabaseReference locationmarkerChildRef;
-
-    private FirebaseDatabase Mydatabase;
-    private DatabaseReference parent;
-    private DatabaseReference groupKey;
-    private String getLocation;
-    private String getCourse;
-    private String getStart;
-    private String getEnd;
-    private String getnumppl;
-    private String groupID;
-
-    private double longitude = 0;
-    private double lat = 0;
-    private static ArrayList<String> location_list = new ArrayList<String>();
-    private static ArrayList<String> courselist = new ArrayList<String>();
-    private static ArrayList<String> startlist = new ArrayList<String>();
-    private static ArrayList<String> endlist = new ArrayList<String>();
-    private static ArrayList<String> ppllist = new ArrayList<String>();
-
-    //creates the map if it hasnt been initialized already
-    private void mapSetup(){
-        if (mMap == null){
-            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-
-            mapFragment.getMapAsync(this);
-        }
-        else{
-            mMap = null;
-            mapSetup();
-        }
-    }
+    private static ArrayList<String> location_list = new ArrayList<>();
+    private static ArrayList<String> courselist = new ArrayList<>();
+    private static ArrayList<String> startlist = new ArrayList<>();
+    private static ArrayList<String> endlist = new ArrayList<>();
+    private static ArrayList<String> ppllist = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,16 +74,18 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         });
 
         //delay the program for 5 seconds
+        //  it takes a few sec to read from the database so hold your horses
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
+        //build the actual map from google magic
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
 
+        //last line of google magic
         mapFragment.getMapAsync(this);
     }
 
@@ -129,8 +95,10 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        GoogleMap mMap = googleMap;
 
-        mMap = googleMap;
+        double longitude;
+        double lat;
 
         //zooms the map in on UB and sets boundries
         LatLng buffalo = new LatLng(43, -78.7865);
@@ -142,7 +110,7 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         Random rand = new Random();
 
         //clear all the markers from the map
-        //mMap.clear();
+        mMap.clear();
 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
