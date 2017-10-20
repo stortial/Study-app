@@ -51,33 +51,33 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     private double lat = 0;
     ArrayList<String> locationkey = new ArrayList<String>();
     //ArrayList<String> locationlist = new ArrayList<String>();
-    private ArrayList<String> location_list = new ArrayList<String>();
-    private ArrayList<String> courselist = new ArrayList<String>();
-    private ArrayList<String> startlist = new ArrayList<String>();
-    private ArrayList<String> endlist = new ArrayList<String>();
-    private ArrayList<String> ppllist = new ArrayList<String>();
-    private ArrayList<Marker> theMarkers = new ArrayList<Marker>();
+    private static ArrayList<String> location_list = new ArrayList<String>();
+    private static ArrayList<String> courselist = new ArrayList<String>();
+    private static ArrayList<String> startlist = new ArrayList<String>();
+    private static ArrayList<String> endlist = new ArrayList<String>();
+    private static ArrayList<String> ppllist = new ArrayList<String>();
     private Handler UI_Handler = new Handler();
 
     private static final String TAG = "DataBase";
 
-    private class Groupss{
-        public String location;
-        public String course;
-        public String starttime;
-        public String endtime;
-        public String numppl;
+    private void mapSetup(){
+        if (mMap == null){
+            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+
+            mapFragment.getMapAsync(this);
+        }
     }
 
+
+    private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.99262, -78.799561),
+            new LatLng(43.012405, -78.770156));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-
-        //parent = database.getReference("groups");
-
-
 
         FirebaseDatabase.getInstance().getReference().child("groups").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -86,20 +86,24 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
 
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
 
-                    System.out.println("ADAM"+snapshot.getKey());
+                    System.out.println("MELL"+snapshot.getKey());
 
 
-
+                    String course = (String) snapshot.child("course").getValue();
+                    String endtime = (String) snapshot.child("endtime").getValue();
+                    String locations = (String) snapshot.child("locations").getValue();
+                    String numppl = (String) snapshot.child("numppl").getValue();
+                    String starttime = (String) snapshot.child("starttime").getValue();
 
                     //Group mgroup = snapshot.getValue(Group.class);
-/*
-                    location_list.add(mgroup.location);
-                    courselist.add(mgroup.course);
-                    startlist.add(mgroup.starttime);
-                    endlist.add(mgroup.endtime);
-                    ppllist.add(mgroup.numppl);
 
-*/
+                    location_list.add(locations);
+                    courselist.add(course);
+                    startlist.add(starttime);
+                    endlist.add(endtime);
+                    ppllist.add(numppl);
+
+                    System.out.println("DANDAN***"+location_list.size());
                 }
             }
 
@@ -109,81 +113,8 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
             }
         });
 
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-
-        mapFragment.getMapAsync(this);
-
-        //System.out.println("BEFORE THE FUNCTION");
-        //database = FirebaseDatabase.getInstance();
-        //locationmarkerRef = database.getReference("groups");
-/*
-        database = FirebaseDatabase.getInstance();
-        groupRef = database.getReference("groups");
-        groupKey = groupRef.push();
-        groupID = groupKey.getKey();
-
-
-
-
-        //database.
-
-
-        groupRef.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                getLocation = dataSnapshot.child("locations").getValue().toString();
-                getCourse = dataSnapshot.child("course").getValue().toString();
-                getStart = dataSnapshot.child("starttime").getValue().toString();
-                getEnd = dataSnapshot.child("endtime").getValue().toString();
-                getnumppl = dataSnapshot.child("numppl").getValue().toString();
-
-                location_list.add(getLocation);
-                courselist.add(getCourse);
-                startlist.add(getStart);
-                endlist.add(getEnd);
-                ppllist.add(getnumppl);
-                System.out.println("Location***** " + getLocation);
-                System.out.println("course***** " + getCourse);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("Firebaselocationmarker", "failed");
-            }
-
-        });
-        //System.out.println("HELLO" + locationkey.size());
-
-  */  }
-
-
-
-    private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.99262, -78.799561),
-            new LatLng(43.012405, -78.770156));
-
-
-    /*private LatLngBounds UniversityAtBuffalo = new LatLngBounds(new LatLng(42.975091,-78.806297),
-            new LatLng(43.020720,-78.766133));*/
-
+        mapSetup();
+    }
 
     /**
      * Manipulates the map once available.
@@ -192,11 +123,9 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-
-
         mMap = googleMap;
 
-        mMap.setLatLngBoundsForCameraTarget(UniversityAtBuffalo);
+        //mMap.setLatLngBoundsForCameraTarget(UniversityAtBuffalo);
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(UniversityAtBuffalo, 17));
 
@@ -215,96 +144,58 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
         //UI_Handler.postDelayed(UI_UPDATE_RUNNABLE, 5000);
 
         Random rand = new Random();
-/*
 
-        System.out.println("here********************************************************" + '\n');
-
-        System.out.println(location_list.size());
-
-
-
-        System.out.println("BEFORE THE FUNCTION");
-        database = FirebaseDatabase.getInstance();
-        locationmarkerRef = database.getReference("location marker");
-
-        database = FirebaseDatabase.getInstance();
-        groupRef = database.getReference("groups");
-        groupKey = groupRef.push();
-        groupID = groupKey.getKey();
-
-
-
-        //database.
-
-        groupRef.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                getLocation = dataSnapshot.child("locations").getValue().toString();
-                getCourse = dataSnapshot.child("course").getValue().toString();
-                getStart = dataSnapshot.child("starttime").getValue().toString();
-                getEnd = dataSnapshot.child("endtime").getValue().toString();
-                getnumppl = dataSnapshot.child("numppl").getValue().toString();
-
-                location_list.add(getLocation);
-                courselist.add(getCourse);
-                startlist.add(getStart);
-                endlist.add(getEnd);
-                ppllist.add(getnumppl);
-                System.out.println("Location***** " + getLocation);
-                System.out.println("course***** " + getCourse);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("Firebaselocationmarker", "failed");
-            }
-
-        });
-*/
-
+        //mMap.clear();
 
         for(int i = 0; i<location_list.size(); ++i) {
 
-            System.out.println(location_list.get(i));
+            System.out.println("ADAM"+location_list.get(i));
 
             if (location_list.get(i) == "Capen") {
-             longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
-               lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
-             } else if (location_list.get(i)== "Lockwood") {
-            longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
-              lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
-            } else if (location_list.get(i)== "SU") {
-              longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
-               lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
+                 longitude = -78.789966 + ( -78.789202 + 78.789966) * rand.nextDouble();
+                 lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
+             }
+            else if (location_list.get(i)== "Lockwood") {
+                longitude = -78.786336 + ( -78.785688+ 78.786336 ) * rand.nextDouble();
+                lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+            }
+            else //(location_list.get(i)== "SU") {
+            {
+                longitude = -78.786780 + ( -78.785832 + 78.786780) * rand.nextDouble();
+                lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
             }
 
             LatLng temp = new LatLng(lat, longitude);
 
+            System.out.println("AdAM"+lat+" "+longitude);
+
             //here is where i add the actual stuff
-            Marker test = mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
                     location_list.get(i)+" "+courselist.get(i)+" "+startlist.get(i)+" "+endlist.get(i)+" "+ ppllist.get(i)));
 
-            theMarkers.add(test);
         }
+
+        /**/
+    }
+/*
+    @Override
+    public void onPause(){
+        super.onPause();
+
+
+
     }
 
+/**/
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        mapSetup();
 
 
+
+    }
 
 /*
     Runnable UI_UPDATE_RUNNABLE = new Runnable() {
