@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 
 //apart of MyclassActivity java file
+//
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
