@@ -11,11 +11,19 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.util.ArrayList;
 
-//allows us to check off textboxes of what classes we are in
-public class Click extends AppCompatActivity {
+
+/*         This class is apart of our add on features
+       allows us to check off textboxes of what classes users are in
+
+
+ */
+
+
+
+
+public class SelectCourses extends AppCompatActivity {
     ArrayList<String> selection = new ArrayList<String>();
     TextView final_text;
 
@@ -28,7 +36,7 @@ public class Click extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chec_box);
+        setContentView(R.layout.select_courses);
         final_text = (TextView) findViewById(R.id.finalResult);
         final_text.setEnabled(false);
 

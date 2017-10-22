@@ -1,10 +1,11 @@
 package org.example.amylipsky.myapplication;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,16 +17,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
-
-import static android.R.id.message;
-import static org.example.amylipsky.myapplication.R.id.StudentUnion;
-import static org.example.amylipsky.myapplication.R.id.button4;
 
 
-public class Main6Activity extends AppCompatActivity {
+public class CreateGroups extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference groupRef;
@@ -45,11 +39,39 @@ public class Main6Activity extends AppCompatActivity {
     private String groupID;
     private static final String TAG = "DataBase";
 
+    Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main6);
+        setContentView(R.layout.create_group);
+
+
+        button = (Button) findViewById(R.id.location);
+        button.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+
+                final PopupMenu popupmenu = new PopupMenu(CreateGroups.this, button);
+                popupmenu.getMenuInflater().inflate(R.menu.pop_up, popupmenu.getMenu());
+
+                popupmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(CreateGroups.this, " " + item.getTitle(), Toast.LENGTH_LONG).show();
+                        groupRef.child(groupID).child("locations").setValue(item.getTitle());
+                        return true;
+                    }
+
+
+                });
+                popupmenu.show();
+
+            }
+        });
 
 
         _Course = (EditText) findViewById(R.id.editText10);
@@ -59,7 +81,7 @@ public class Main6Activity extends AppCompatActivity {
         Button buttonAddGroup = (Button) findViewById(R.id.AddGroup);
 
         database = FirebaseDatabase.getInstance();
-         // initialize = database.getReference("groups").child("Initialize Group");
+        // initialize = database.getReference("groups").child("Initialize Group");
         //initialize.setValue("true");
         groupRef = database.getReference("groups");
         groupKey = groupRef.push();
@@ -125,56 +147,13 @@ public class Main6Activity extends AppCompatActivity {
                 }
             }
         });
-
-
-        //add a toast to show when successfully signed in
-        Button btnCapen = (Button) findViewById(R.id.capen);
-
-        btnCapen.setOnClickListener(new View.OnClickListener()
-
-        {
-            public void onClick (View v){
-
-                //Intent startIntent = new Intent(getApplicationContext(), Capen.class);
-                locationID = "Capen";
-                groupRef.child(groupID).child("locations").setValue(locationID);
-            }
-
-        });
-
-        Button btnLockwood = (Button) findViewById(R.id.lockwood);
-
-        btnLockwood.setOnClickListener(new View.OnClickListener(){
-
-
-            public void onClick(View view){
-
-
-                //Intent startIntent = new Intent(getApplicationContext(), LockWood.class);
-                locationID = "Lockwood";
-                groupRef.child(groupID).child("locations").setValue(locationID);
-            }
-        });
-
-        Button btnSU = (Button) findViewById(R.id.StudentUnion);
-
-        btnSU.setOnClickListener(new View.OnClickListener(){
-
-
-            public void onClick(View view){
-                Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
-                //Intent startIntent = new Intent(getApplicationContext(), StudentUnion.class);
-                locationID = "Student Union";
-                groupRef.child(groupID).child("location").setValue(locationID);
-            }
-        });
-
-    }
-
-    private void toastMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 
-}
 
+        private void toastMessage(String message) {
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        }
+
+
+    }

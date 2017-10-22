@@ -24,17 +24,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 /**
- * Demonstrate Firebase Authentication using a Google ID Token.
+ * Demonstrate Firebase Authentication using a Google ID authentication
  */
-public class MainActivity extends BaseActivity implements
+public class GoogleSignIn extends BaseActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
 
@@ -51,7 +45,7 @@ public class MainActivity extends BaseActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.google_signin);
 
 
 //
@@ -77,9 +71,7 @@ public class MainActivity extends BaseActivity implements
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
     }
 
     // [START on_start_check_user]
@@ -116,25 +108,6 @@ public class MainActivity extends BaseActivity implements
     }
 
 
-//    private void handleSignInResult(GoogleSignInResult result) {
-//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-//        if (result.isSuccess()) {
-//            // Signed in successfully, show authenticated UI.
-//            GoogleSignInAccount acct = result.getSignInAccount();
-//            updateUI(true);
-//
-//            Intent myIntent = new Intent(MainActivity.this, YourClassAfterLogin.class);
-//            startActivity(myIntent);
-//            finish();
-//        } else {
-//            // Signed out, show unauthenticated UI.
-//            updateUI(false);
-//        }
-//    }
-
-
-    // [END onactivityresult]
-
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
@@ -155,7 +128,7 @@ public class MainActivity extends BaseActivity implements
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.makeText(GoogleSignIn.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -169,37 +142,11 @@ public class MainActivity extends BaseActivity implements
 
 
 
-
-
-//
-//    // [START handleSignInResult]
-//    private void handleSignInResult(GoogleSignInResult result) {
-//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-//        if (result.isSuccess()) {
-//            // Signed in successfully, show authenticated UI.
-//            GoogleSignInAccount acct = result.getSignInAccount();
-//            updateUI(null);
-//
-//            Intent myIntent = new Intent(GoogleSignIn.this, AddItemsToDatabase.class);
-//            startActivity(myIntent);
-//            finish();
-//        } else {
-//            // Signed out, show unauthenticated UI.
-//            updateUI(null);
-//
-//
-//        }
-//    }
-
-
-    // [END auth_with_google]
-
-    // [START signin]
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-    // [END signin]
+
 
     private void signOut() {
         // Firebase sign out
@@ -234,47 +181,18 @@ public class MainActivity extends BaseActivity implements
         if (user != null) {
             final String _User = user.getUid();
 
-            /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-            final DatabaseReference ref = database.getReference("users");
-
-            ref.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (dataSnapshot : ref.getRef("users")){
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value."), databaseError.toException());
-                }
-            });*/
 
 
-
-            Intent myIntent = new Intent(MainActivity.this, Main2Activity.class);
+            Intent myIntent = new Intent(GoogleSignIn.this, MainMenu.class);
             startActivity(myIntent);
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
-            // mStatusTextView.setText(R.string.signed_out);
-            // mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
 
-   /* public boolean isCurrentUserRegistered(FirebaseUser user)
-    {
-        String _User = user.getUid();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("users");
-        Query query;
-        if (query.equalTo(_User) == _User)
-    }*/
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

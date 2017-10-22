@@ -2,23 +2,24 @@ package org.example.amylipsky.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 //Google Maps Class
-public class Main5Activity extends AppCompatActivity implements OnMapReadyCallback {
+public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback {
 
     private static ArrayList<String> location_list = new ArrayList<>();
     private static ArrayList<String> courselist = new ArrayList<>();
@@ -29,7 +30,7 @@ public class Main5Activity extends AppCompatActivity implements OnMapReadyCallba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
+        setContentView(R.layout.google_maps);
 
         //gets the data from the database
         //  note, this happens after the first time the map is created
