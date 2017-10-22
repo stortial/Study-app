@@ -7,7 +7,7 @@
     android:id="@+id/activity_main2"
     android:gravity="center"
     android:layout_alignParentBottom="true"
-    tools:context="org.example.amylipsky.myapplication.MainActivity"
+    tools:context="org.example.amylipsky.myapplication.CreateGroups"
     android:background="@drawable/back">
 
 
@@ -70,20 +70,14 @@
 
         <Button
 
-            android:id="@+id/capen"
+            android:id="@+id/location"
             style="@style/button_style"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:text="Capen" />
+            android:text="Select your location" />
 
 
-        <Button
 
-            android:id="@+id/lockwood"
-            style="@style/button_style"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:text="Lockwood" />
 
 
         <Button
@@ -94,13 +88,7 @@
             android:layout_height="38dp"
             android:text="Create Group" />
 
-        <Button
 
-            android:id="@+id/StudentUnion"
-            style="@style/button_style"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:text="Student Union" />
 
 
     </LinearLayout>

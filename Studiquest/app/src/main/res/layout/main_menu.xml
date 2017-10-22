@@ -11,7 +11,7 @@
     android:paddingTop="10dp"
     android:gravity="center"
     android:layout_alignParentBottom="true"
-    tools:context="org.example.amylipsky.myapplication.MainActivity"
+    tools:context="org.example.amylipsky.myapplication.GoogleSignIn"
     android:background="@drawable/back">
 
 
@@ -24,7 +24,9 @@
 
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
 
         <ImageView
@@ -38,7 +40,7 @@
 
 
         <Button
-            android:id="@+id/bt2"
+            android:id="@+id/creategroup"
             style="@style/button_style"
 
             android:layout_width="253dp"
@@ -49,25 +51,25 @@
             android:text="@string/create_groups" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/googlemap"
             style="@style/button_style"
 
             android:layout_width="253dp"
             android:layout_height="42dp"
 
             android:layout_marginTop="13dp"
-            android:text="@string/google_maps" />
+            android:text="Find Groups using Google Maps" />
 
-        <Button
-        android:id="@+id/button4"
-        style="@style/button_style"
+        <!--<Button-->
+        <!--android:id="@+id/button4"-->
+        <!--style="@style/button_style"-->
 
-        android:layout_width="253dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="13dp"
+        <!--android:layout_width="253dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginTop="13dp"-->
 
 
-        android:text="@string/select_courses" />
+        <!--android:text="@string/select_courses" />-->
 
 
         <Button
@@ -80,9 +82,20 @@
             android:onClick="signOut"
                 android:text="Log Out"/>
 
-
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="19dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginTop="43dp"
+            style="@style/thank_you"
+            android:textStyle="bold|italic"
+            android:text="@string/thank_you" />
            
     </LinearLayout>
+
 
 
 </RelativeLayout>

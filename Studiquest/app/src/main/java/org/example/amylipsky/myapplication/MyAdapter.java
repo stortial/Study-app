@@ -7,6 +7,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
+
+
+//apart of MyclassActivity java file
+//
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     ArrayList<String> courselist = new ArrayList<String>();

@@ -8,16 +8,15 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import static org.example.amylipsky.myapplication.R.id.button4;
-
 //After GoogleSign In page (4 buttons: maps,logout,classes,groups)
-public class Main2Activity  extends AppCompatActivity {
+
+public class MainMenu extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.main_menu);
 
 //
 //
@@ -30,12 +29,12 @@ public class Main2Activity  extends AppCompatActivity {
 //
 //        }
         //create groups class
-        Button button1 = (Button) findViewById(R.id.bt2);
+        Button button1 = (Button) findViewById(R.id.creategroup);
         button1.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Main6Activity.class);
+                Intent startIntent = new Intent(getApplicationContext(), CreateGroups.class);
                 startActivity(startIntent);
 
 
@@ -44,51 +43,45 @@ public class Main2Activity  extends AppCompatActivity {
 
         });
 
-        Button button2 = (Button) findViewById(R.id.button3);
+        Button button2 = (Button) findViewById(R.id.googlemap);
         button2.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Main5Activity.class);
+                Intent startIntent = new Intent(getApplicationContext(), GoogleMaps.class);
                 startActivity(startIntent);
 
 
             }
         });
-
-
-
-        //create groups
-        Button button3=(Button) findViewById(button4);
-        button3.setOnClickListener(new View.OnClickListener() {
-
-
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
-                startActivity(startIntent);
-
-
-            }
-
-
-
-        });
-
-
-
 
     }
 
-    public void signOut(View v){
+//        //create groups
+//        Button button3=(Button) findViewById(button4);
+//        button3.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            public void onClick(View v) {
+//                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
+//                startActivity(startIntent);
+//
+//
+//            }
+//
+//
+//
+//        });
+//
+//
+//
+//
+//    }
+
+    public void signOut(View v) {
         FirebaseAuth.getInstance().signOut();
-        Intent myIntent = new Intent(Main2Activity.this, MainActivity.class);
+        Intent myIntent = new Intent(MainMenu.this, GoogleSignIn.class);
         startActivity(myIntent);
         finish();
     }
-
-
-
-
-
-
 }
