@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 //After GoogleSign In page (4 buttons: maps,logout,classes,groups)
+
 public class MainMenu extends AppCompatActivity {
 
 
