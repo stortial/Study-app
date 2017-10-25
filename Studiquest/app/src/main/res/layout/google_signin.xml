@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+     android:background="@drawable/back"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    tools:context="org.example.amylipsky.myapplication.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="40dp"
+
+
+
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/studi" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/textView_style"
+            android:layout_margin="5dp"
+            android:text="Studiquest"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:text="Sign in with your Google Account"
+            android:layout_width="253dp"
+            android:layout_height="42dp"
+            style="@style/button_style"
+            android:layout_marginTop="13dp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            />
+
+
+        <!--<Button-->
+            <!--android:id="@+id/button"-->
+            <!--style="@style/button_style"-->
+
+            <!--android:text="Log In"-->
+            <!--/>-->
+
+
+
+
+        <!--<Button-->
+            <!--android:id="@+id/NewUser"-->
+            <!--style="@style/textView_style"-->
+
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:text="New User?" />-->
+    </LinearLayout>
+
+</RelativeLayout>

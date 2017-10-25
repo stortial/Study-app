@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main2"
+    android:gravity="center"
+    android:layout_alignParentBottom="true"
+    tools:context="org.example.amylipsky.myapplication.CreateGroups"
+    android:background="@drawable/back">
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp">
+
+        <EditText
+            android:id="@+id/editText10"
+            style="@style/editText_style"
+            android:layout_width="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="139dp"
+            android:layout_marginRight="139dp"
+            android:layout_marginTop="95dp"
+            android:hint="Course"
+            android:inputType="textPersonName"
+            android:textSize="19sp" />
+
+        <EditText
+            android:hint="Start Time"
+            android:id="@+id/editText12"
+            android:inputType="textPersonName"
+
+            style="@style/editText_style"
+            android:textSize="19sp"/>
+
+
+
+        <EditText
+            android:id="@+id/editText2"
+            style="@style/editText_style"
+            android:inputType="textPersonName"
+            android:hint="End Time"
+            android:textSize="19sp"
+
+            />
+
+
+
+        <EditText
+            android:id="@+id/numerofppl"
+            style="@style/editText_style"
+            android:inputType="textPersonName"
+            android:hint="Number of people"
+            android:textSize="19sp"
+
+            android:layout_weight="0.04" />
+
+
+        <Button
+
+            android:id="@+id/location"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Select your location" />
+
+
+
+
+
+        <Button
+
+            android:id="@+id/AddGroup"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Create Group" />
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+

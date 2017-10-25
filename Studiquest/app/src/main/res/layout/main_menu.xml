@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/activity_main2"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:gravity="center"
+    android:layout_alignParentBottom="true"
+    tools:context="org.example.amylipsky.myapplication.GoogleSignIn"
+    android:background="@drawable/back">
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/linearLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="245dp"
+            android:layout_height="155dp"
+            android:gravity="center"
+            android:layout_margin="5dp"
+
+            app:srcCompat="@drawable/studi" />
+
+
+        <Button
+            android:id="@+id/creategroup"
+            style="@style/button_style"
+
+            android:layout_width="253dp"
+            android:layout_height="42dp"
+
+
+            android:layout_marginTop="13dp"
+            android:text="@string/create_groups" />
+
+        <Button
+            android:id="@+id/googlemap"
+            style="@style/button_style"
+
+            android:layout_width="253dp"
+            android:layout_height="42dp"
+
+            android:layout_marginTop="13dp"
+            android:text="Find Groups using Google Maps" />
+
+        <!--<Button-->
+        <!--android:id="@+id/button4"-->
+        <!--style="@style/button_style"-->
+
+        <!--android:layout_width="253dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginTop="13dp"-->
+
+
+        <!--android:text="@string/select_courses" />-->
+
+
+        <Button
+            android:id="@+id/logout"
+            style="@style/button_style"
+
+            android:layout_width="253dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="13dp"
+            android:onClick="signOut"
+                android:text="Log Out"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="19dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginTop="43dp"
+            style="@style/thank_you"
+            android:textStyle="bold|italic"
+            android:text="@string/thank_you" />
+           
+    </LinearLayout>
+
+
+
+</RelativeLayout>
