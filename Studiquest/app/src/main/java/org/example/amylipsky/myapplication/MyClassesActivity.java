@@ -56,6 +56,17 @@ public class MyClassesActivity extends AppCompatActivity {
 
         });
 
+        Button buttonRemoveClass = (Button) findViewById(R.id.removeClass);
+        buttonRemoveClass.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Log.d("MyApp","I am here");
+            }
+
+
+        });
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users").child(_User).child("Courses");
