@@ -116,33 +116,37 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
 
-            System.out.println("ADAM"+location_list.get(i));
 
-            //determines lat and lng for location
-            //  NOTE, always goes to default for some reason
-            if (location_list.get(i).equals("Capen")) {
-                 longitude = -78.789966 + ( -78.789202 + 78.789966) * rand.nextDouble();
-                 lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
-             }
-            else if (location_list.get(i).equals( "Lockwood")) {
-                longitude = -78.786336 + ( -78.785688+ 78.786336 ) * rand.nextDouble();
-                lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+            System.out.println(location_list.get(i) + '\n');
+            System.out.println("Capen");
+            System.out.println("Lockwood");
+
+            if (!(location_list.get(i) == null)) {
+
+
+                //determines lat and lng for location
+                //  NOTE, always goes to default for some reason
+                if (location_list.get(i).equals("Capen")) {
+                    longitude = -78.789966 + (-78.789202 + 78.789966) * rand.nextDouble();
+                    lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
+                } else if (location_list.get(i).equals("Lockwood")) {
+                    longitude = -78.786336 + (-78.785688 + 78.786336) * rand.nextDouble();
+                    lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
+                } else //if (location_list.get(i)== "SU") {
+                {
+                    longitude = -78.786780 + (-78.785832 + 78.786780) * rand.nextDouble();
+                    lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
+                }
+
+                //set the temp lat and lng for the current marker
+                LatLng temp = new LatLng(lat, longitude);
+
+                //create the actual marker using provided info
+                mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                        location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+
             }
-            else //if (location_list.get(i)== "SU") {
-            {
-                longitude = -78.786780 + ( -78.785832 + 78.786780) * rand.nextDouble();
-                lat = 43.000867 + (43.001451 - 43.000867) * rand.nextDouble();
-            }
-
-            //set the temp lat and lng for the current marker
-            LatLng temp = new LatLng(lat, longitude);
-
-            //create the actual marker using provided info
-            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                    location_list.get(i)+" "+courselist.get(i)+" "+startlist.get(i)+" "+endlist.get(i)+" "+ ppllist.get(i)));
-
         }
-
     }
 
 }
