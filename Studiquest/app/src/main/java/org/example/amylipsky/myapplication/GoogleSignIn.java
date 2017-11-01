@@ -179,6 +179,8 @@ public class GoogleSignIn extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
+
+
             final String _User = user.getUid();
 
 
