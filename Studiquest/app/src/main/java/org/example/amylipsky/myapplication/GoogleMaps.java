@@ -106,6 +106,11 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(buffalo));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
 
+        //Constrain the camera target to the UB bounds
+        LatLngBounds bounds = new LatLngBounds(
+                new LatLng(43, -78.7865), new LatLng(43, -78.7865));
+        mMap.setLatLngBoundsForCameraTarget(bounds);
+
         //used to create random number
         //  NOTE NOT SEEDED
         Random rand = new Random();
