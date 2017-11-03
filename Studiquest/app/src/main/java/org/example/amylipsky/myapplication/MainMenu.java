@@ -55,28 +55,28 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-    }
 
-//        //create groups
-//        Button button3=(Button) findViewById(button4);
-//        button3.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            public void onClick(View v) {
-//                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
-//                startActivity(startIntent);
-//
-//
-//            }
-//
-//
-//
-//        });
-//
-//
-//
-//
-//    }
+
+        //create groups
+        Button button3=(Button) findViewById(R.id.button4);
+        button3.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
+                startActivity(startIntent);
+
+
+            }
+
+
+
+        });
+
+
+
+
+    }
 
     public void signOut(View v) {
         FirebaseAuth.getInstance().signOut();
