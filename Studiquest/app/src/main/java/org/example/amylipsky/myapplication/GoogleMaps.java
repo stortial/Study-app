@@ -137,6 +137,10 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //clear all the markers from the map
         mMap.clear();
 
+        userCourses.clear();
+
+        userCourses.add("CSE");
+
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
 
@@ -159,10 +163,33 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
             //set the temp lat and lng for the current marker
             LatLng temp = new LatLng(lat, longitude);
 
-            //create the actual marker using provided info
-            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                    location_list.get(i)+" "+courselist.get(i)+" "+startlist.get(i)+" "+endlist.get(i)+" "+ ppllist.get(i)));
 
+            String them = courselist.get(i)+"*****";
+
+            them = them.toUpperCase();
+
+            them = them.substring(0,3);
+
+            System.out.println("Adam");
+            System.out.println(them);
+            System.out.println(userCourses.get(0));
+
+            //iterate through all the user courses
+            for(int j = 0; j<userCourses.size();++j) {
+
+                System.out.println("HERE???");
+
+                //compare if this user course is equal to the course of the marker
+                if(them.equals(userCourses.get(j))) {
+                    //create the actual marker using provided info
+                    mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                            location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+
+                }
+
+                System.out.println("NO HERE");
+
+            }
         }
 
     }
