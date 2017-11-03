@@ -137,9 +137,6 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //clear all the markers from the map
         mMap.clear();
 
-        userCourses.clear();
-
-        userCourses.add("CSE");
 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
