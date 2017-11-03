@@ -36,10 +36,10 @@
         <activity android:name=".MainMenu" />
         <activity android:name=".GoogleMaps" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".SelectCourses" />
         <activity android:name=".CreateGroups" />
         <activity android:name=".MyClassesActivity" />
 
+        <activity android:name=".SelectCourses"/>
     </application>
 
 </manifest>
