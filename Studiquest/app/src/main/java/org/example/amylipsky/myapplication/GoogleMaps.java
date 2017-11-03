@@ -10,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,11 +29,15 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
     private static ArrayList<String> startlist = new ArrayList<>();
     private static ArrayList<String> endlist = new ArrayList<>();
     private static ArrayList<String> ppllist = new ArrayList<>();
+    private static ArrayList<String> userCourses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_maps);
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        final String _User = currentUser.getUid(); //get Uid from Auth
 
         //gets the data from the database
         //  note, this happens after the first time the map is created
@@ -49,8 +55,6 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                 //iterate through all children of groups
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
 
-                    System.out.println("MELL"+snapshot.getKey());
-
                     //put each piece of data into the appropriate variable
                     String course = (String) snapshot.child("course").getValue();
                     String endtime = (String) snapshot.child("endtime").getValue();
@@ -65,7 +69,27 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                     endlist.add(endtime);
                     ppllist.add(numppl);
 
-                    System.out.println("DANDAN***"+location_list.size());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        FirebaseDatabase.getInstance().getReference().child("users").child(_User).child("Courses").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                userCourses.clear();
+
+                //iterate through the courses
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+
+                    String theCourse = (String) snapshot.getKey();
+
+                    userCourses.add(theCourse);
                 }
             }
 
@@ -120,8 +144,6 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
-
-            System.out.println("ADAM"+location_list.get(i));
 
             //determines lat and lng for location
             //  NOTE, always goes to default for some reason

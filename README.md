@@ -1,6 +1,8 @@
 # Study-app 
 #### a.k.a Studiquest <br /> <br />
 
+click on this link to download! https://drive.google.com/file/d/0B1t_AbkxUCgEaDJTY1NwYlJwS0k/view?usp=sharing
+
 This is an android mobile application that allows you to create and organize study groups easily. As of now, you would be able to create a study group by filling in your information regarding the study group such as Course title, Start/End time, Number of people as well as selecting a location. Once that is done, a marker of the location you have selected should appear on the Google maps.
 
 

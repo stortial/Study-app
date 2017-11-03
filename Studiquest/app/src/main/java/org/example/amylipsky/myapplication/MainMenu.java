@@ -60,22 +60,12 @@ public class MainMenu extends AppCompatActivity {
        button3.setOnClickListener(new View.OnClickListener()
 
     {
-//
-//
         public void onClick (View v){
         Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
         startActivity(startIntent);
-//
-
     }
-//
-//
-//
     });
-//
-//
-//
-//
+
 }
 
     public void signOut(View v) {
