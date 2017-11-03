@@ -8,6 +8,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -129,6 +130,10 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         LatLng buffalo = new LatLng(43, -78.7865);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(buffalo));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
+
+        LatLngBounds boundz = new LatLngBounds(
+                new LatLng(43, -78.7865), new LatLng(43, -78.7865));
+        mMap.setLatLngBoundsForCameraTarget(boundz);
 
         //used to create random number
         //  NOTE NOT SEEDED
