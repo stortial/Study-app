@@ -60,16 +60,16 @@
             android:layout_marginTop="13dp"
             android:text="Find Groups using Google Maps" />
 
-        <!--<Button-->
-        <!--android:id="@+id/button4"-->
-        <!--style="@style/button_style"-->
+        <Button
+        android:id="@+id/button4"
+        style="@style/button_style"
 
-        <!--android:layout_width="253dp"-->
-        <!--android:layout_height="42dp"-->
-        <!--android:layout_marginTop="13dp"-->
+        android:layout_width="253dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="13dp"
 
 
-        <!--android:text="@string/select_courses" />-->
+        android:text="@string/select_courses" />
 
 
         <Button
