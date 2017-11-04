@@ -137,17 +137,20 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //clear all the markers from the map
         mMap.clear();
 
+        System.out.println("Adam");
+
+        System.out.println(location_list.size());
 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
 
             //determines lat and lng for location
             //  NOTE, always goes to default for some reason
-            if (location_list.get(i) == "Capen") {
+            if (location_list.get(i).equals("Capen")) {
                  longitude = -78.789966 + ( -78.789202 + 78.789966) * rand.nextDouble();
                  lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
              }
-            else if (location_list.get(i)== "Lockwood") {
+            else if (location_list.get(i).equals("Lockwood")) {
                 longitude = -78.786336 + ( -78.785688+ 78.786336 ) * rand.nextDouble();
                 lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
             }
