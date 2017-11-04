@@ -53,5 +53,13 @@ android:weightSum="1">
     android:layout_marginTop="13dp"
     android:text="Add Classes" />
 
+<Button
+    android:id="@+id/removeClass"
+    style="@style/button_style"
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:layout_marginTop="13dp"
+    android:text="Remove Classes" />
+
 
 </LinearLayout>

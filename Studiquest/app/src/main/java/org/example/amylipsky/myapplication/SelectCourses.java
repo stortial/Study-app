@@ -49,8 +49,6 @@ public class SelectCourses extends AppCompatActivity {
             System.out.println(Selections);
             DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(Selections);
             myRef.setValue("true");
-
-
         }
 
 
