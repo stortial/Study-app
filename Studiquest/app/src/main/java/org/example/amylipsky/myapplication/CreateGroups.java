@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,8 +34,8 @@ public class CreateGroups extends AppCompatActivity {
 
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText _Course;
-    private EditText _StartTime;
-    private EditText _EndTime;
+    private TimePicker _StartTime;
+    private TimePicker _EndTime;
     private EditText _NumberOfPeople;
     private String groupID;
     private static final String TAG = "DataBase";
@@ -75,8 +76,8 @@ public class CreateGroups extends AppCompatActivity {
 
 
         _Course = (EditText) findViewById(R.id.editText10);
-        _StartTime = (EditText) findViewById(R.id.editText12);
-        _EndTime = (EditText) findViewById(R.id.editText2);
+        _StartTime = (TimePicker) findViewById(R.id.TimePicker1);
+        _EndTime = (TimePicker) findViewById(R.id.TimePicker2);
         _NumberOfPeople = (EditText) findViewById(R.id.numerofppl);
         Button buttonAddGroup = (Button) findViewById(R.id.AddGroup);
 
@@ -117,8 +118,36 @@ public class CreateGroups extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Attempting to add object to database.");
                 String course = _Course.getText().toString();
-                String starttime = _StartTime.getText().toString();
-                String endtime = _EndTime.getText().toString();
+
+                String starttime = "";
+                String amPm = "";
+                if(_StartTime.getHour() > 12){
+                    starttime += (_StartTime.getHour() - 12);
+                    amPm = "PM";
+                } else {
+                    starttime += _StartTime.getHour();
+                    amPm = "AM";
+                }
+                starttime += ":";
+                if(_StartTime.getMinute() < 10){
+                    starttime += "0";
+                }
+                starttime += _StartTime.getMinute() + amPm;
+
+                String endtime = "";
+                if(_EndTime.getHour() > 12){
+                    endtime += (_EndTime.getHour() - 12);
+                    amPm = "PM";
+                } else {
+                    endtime += _EndTime.getHour();
+                    amPm = "AM";
+                }
+                endtime += ":";
+                if(_EndTime.getMinute() < 10){
+                    endtime += "0";
+                }
+                endtime += _EndTime.getMinute() + amPm;
+
                 String numppl = _NumberOfPeople.getText().toString();
 
                 if (!course.equals("")) {
@@ -130,14 +159,10 @@ public class CreateGroups extends AppCompatActivity {
                 if (!starttime.equals("")) {
                     groupRef.child(groupID).child("starttime").setValue(starttime);
                     toastMessage("Adding " + starttime + " to database...");
-                    // reset the text
-                    _StartTime.setText("");
                 }
                 if (!endtime.equals("")) {
                     groupRef.child(groupID).child("endtime").setValue(endtime);
                     toastMessage("Adding " + endtime + " to database...");
-                    // reset the text
-                    _EndTime.setText("");
                 }
                 if (!numppl.equals("")) {
                     groupRef.child(groupID).child("numppl").setValue(numppl);
