@@ -8,7 +8,10 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,11 +29,15 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
     private static ArrayList<String> startlist = new ArrayList<>();
     private static ArrayList<String> endlist = new ArrayList<>();
     private static ArrayList<String> ppllist = new ArrayList<>();
+    private static ArrayList<String> userCourses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_maps);
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        final String _User = currentUser.getUid(); //get Uid from Auth
 
         //gets the data from the database
         //  note, this happens after the first time the map is created
@@ -48,8 +55,6 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                 //iterate through all children of groups
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
 
-                    System.out.println("MELL"+snapshot.getKey());
-
                     //put each piece of data into the appropriate variable
                     String course = (String) snapshot.child("course").getValue();
                     String endtime = (String) snapshot.child("endtime").getValue();
@@ -64,7 +69,27 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                     endlist.add(endtime);
                     ppllist.add(numppl);
 
-                    System.out.println("DANDAN***"+location_list.size());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        FirebaseDatabase.getInstance().getReference().child("users").child(_User).child("Courses").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                userCourses.clear();
+
+                //iterate through the courses
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+
+                    String theCourse = (String) snapshot.getKey();
+
+                    userCourses.add(theCourse);
                 }
             }
 
@@ -106,6 +131,10 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(buffalo));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(buffalo, 14));
 
+        LatLngBounds boundz = new LatLngBounds(
+                new LatLng(43, -78.7865), new LatLng(43, -78.7865));
+        mMap.setLatLngBoundsForCameraTarget(boundz);
+
         //used to create random number
         //  NOTE NOT SEEDED
         Random rand = new Random();
@@ -116,15 +145,13 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
 
-            System.out.println("ADAM"+location_list.get(i));
-
             //determines lat and lng for location
             //  NOTE, always goes to default for some reason
-            if (location_list.get(i) == "Capen") {
+            if (location_list.get(i).equals("Capen")) {
                  longitude = -78.789966 + ( -78.789202 + 78.789966) * rand.nextDouble();
                  lat = 43.000523 + (43.001268 - 43.000523) * rand.nextDouble();
              }
-            else if (location_list.get(i)== "Lockwood") {
+            else if (location_list.get(i).equals("Lockwood")) {
                 longitude = -78.786336 + ( -78.785688+ 78.786336 ) * rand.nextDouble();
                 lat = 42.999886 + (43.000597 - 42.999886) * rand.nextDouble();
             }
@@ -137,10 +164,25 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
             //set the temp lat and lng for the current marker
             LatLng temp = new LatLng(lat, longitude);
 
-            //create the actual marker using provided info
-            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                    location_list.get(i)+" "+courselist.get(i)+" "+startlist.get(i)+" "+endlist.get(i)+" "+ ppllist.get(i)));
 
+            String them = courselist.get(i)+"*****";
+
+            them = them.toUpperCase();
+
+            them = them.substring(0,3);
+
+            //iterate through all the user courses
+            for(int j = 0; j<userCourses.size();++j) {
+
+
+                //compare if this user course is equal to the course of the marker
+                if(them.equals(userCourses.get(j))) {
+                    //create the actual marker using provided info
+                    mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                            location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+
+                }
+            }
         }
 
     }
