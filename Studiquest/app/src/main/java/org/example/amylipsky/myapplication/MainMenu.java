@@ -20,14 +20,13 @@ public class MainMenu extends AppCompatActivity {
 
 //
 //
-//        if (getIntent().hasExtra("org.example.amylipsky.myapplication.SOMETHING")) {
-//            TextView tv = (TextView) findViewById(R.id.textView3);
-//
-//            String text = getIntent().getExtras().getString("org.example.amylipsky.myapplication.SOMETHING");
-//            //putting text in text view
-//            tv.setText(text);
-//
-//        }
+        //if (getIntent().hasExtra("org.example.amylipsky.myapplication.SOMETHING")) {
+        //TextView tv = (TextView) findViewById(R.id.textView3);
+
+        // String text = getIntent().getExtras().getString("org.example.amylipsky.myapplication.SOMETHING");
+        // tv.setText(text);
+
+        //}
         //create groups class
         Button button1 = (Button) findViewById(R.id.creategroup);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -55,28 +54,27 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-    }
 
-//        //create groups
-//        Button button3=(Button) findViewById(button4);
-//        button3.setOnClickListener(new View.OnClickListener() {
+
+        Button button3 = (Button) findViewById(R.id.button4);
+        button3.setOnClickListener(new View.OnClickListener() {
+            //
 //
+            public void onClick (View v){
+                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
+                startActivity(startIntent);
 //
-//            public void onClick(View v) {
-//                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
-//                startActivity(startIntent);
-//
-//
-//            }
-//
-//
-//
-//        });
+
+            }
 //
 //
 //
+        });
 //
-//    }
+//
+//
+//
+    }
 
     public void signOut(View v) {
         FirebaseAuth.getInstance().signOut();

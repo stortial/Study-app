@@ -10,9 +10,6 @@
     tools:context="org.example.amylipsky.myapplication.CreateGroups"
     android:background="@drawable/back">
 
-
-
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:orientation="vertical"
@@ -37,26 +34,37 @@
             android:inputType="textPersonName"
             android:textSize="19sp" />
 
-        <EditText
-            android:hint="Start Time"
-            android:id="@+id/editText12"
-            android:inputType="textPersonName"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Time"
+            android:textAlignment="center"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="19sp" />
 
-            style="@style/editText_style"
-            android:textSize="19sp"/>
+        <TimePicker
+            android:id="@+id/TimePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="95dp"
+            android:background="@color/cardview_light_background"
+            android:timePickerMode="spinner" />
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="End Time"
+            android:textAlignment="center"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="19sp" />
 
-
-        <EditText
-            android:id="@+id/editText2"
-            style="@style/editText_style"
-            android:inputType="textPersonName"
-            android:hint="End Time"
-            android:textSize="19sp"
-
-            />
-
-
+        <TimePicker
+            android:id="@+id/TimePicker2"
+            android:layout_width="wrap_content"
+            android:layout_height="95dp"
+            android:background="@color/cardview_light_background"
+            android:timePickerMode="spinner" />
 
         <EditText
             android:id="@+id/numerofppl"
@@ -67,7 +75,6 @@
 
             android:layout_weight="0.04" />
 
-
         <Button
 
             android:id="@+id/location"
@@ -75,10 +82,6 @@
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Select your location" />
-
-
-
-
 
         <Button
 
@@ -88,12 +91,6 @@
             android:layout_height="38dp"
             android:text="Create Group" />
 
-
-
-
     </LinearLayout>
 
 </RelativeLayout>
-
-
-
