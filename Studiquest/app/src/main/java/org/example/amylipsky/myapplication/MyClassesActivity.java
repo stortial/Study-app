@@ -65,6 +65,21 @@ public class MyClassesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myclasses_main);
 
+        Button backarr =(Button) findViewById(R.id.backbutton);
+        backarr.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(startIntent);
+
+
+            }
+
+
+        });
+
+
 
         Button buttonAddClass = (Button) findViewById(R.id.addClasses);
         buttonAddClass.setOnClickListener(new View.OnClickListener() {

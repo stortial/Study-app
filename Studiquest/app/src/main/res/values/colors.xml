@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#446ec4</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="forsplash">#f6060215</color>
+    <color name="colorAccent">#9c0e86e4</color>
+    <color name="cbutton">#f63cb6ef</color>
 
 </resources>

@@ -5,19 +5,20 @@
 <!-- as well as the select courses xml file and will be apart of our add on features-->
 
 
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
 android:layout_height="match_parent"
 android:layout_gravity="center"
 android:paddingBottom="10dp"
 android:paddingLeft="10dp"
 android:paddingRight="10dp"
-android:paddingTop="10dp"
-android:layout_alignParentBottom="true"
-android:weightSum="1">
+    android:background="@drawable/brick"
+
+    android:paddingTop="10dp"
+        android:weightSum="1"
+    android:id="@+id/linearLayout2">
 
 <TextView
     android:id="@+id/mycourses"
@@ -27,8 +28,10 @@ android:weightSum="1">
     android:ems="10"
     android:gravity="center"
     android:layout_margin="5dp"
+    android:textStyle="bold"
     android:inputType="textPersonName"
     android:text="My Courses"
+
     android:textSize="25sp" />
 
 <GridLayout
@@ -62,4 +65,15 @@ android:weightSum="1">
     android:text="Remove Classes" />
 
 
-</LinearLayout>
+    <Button
+        android:id="@+id/backbutton"
+
+        android:layout_width="59dp"
+        android:layout_height="63dp"
+        android:background="@drawable/backarr"
+      />
+
+
+
+    </LinearLayout>
+
