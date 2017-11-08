@@ -1,6 +1,7 @@
 package org.example.amylipsky.myapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
@@ -47,6 +48,22 @@ public class CreateGroups extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
+
+
+
+        Button backarr =(Button) findViewById(R.id.backbutton);
+        backarr.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(startIntent);
+
+
+            }
+
+
+        });
 
 
         button = (Button) findViewById(R.id.location);

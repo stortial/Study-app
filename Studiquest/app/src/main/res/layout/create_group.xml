@@ -9,6 +9,32 @@
     android:layout_alignParentBottom="true"
     tools:context="org.example.amylipsky.myapplication.CreateGroups"
     android:background="@drawable/back">
+    <TextView
+        android:id="@+id/studi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Studiquest "
+        android:textAlignment="center"
+        android:textStyle="bold|italic"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp" />
+    <Button
+        android:id="@+id/backbutton"
+
+        android:layout_width="59dp"
+        android:layout_height="63dp"
+        android:background="@drawable/backarr"
+        android:layout_alignTop="@+id/studi"
+        android:textSize="18sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/linearLayout" />
+
+
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -17,22 +43,9 @@
         android:layout_height="wrap_content"
         android:weightSum="1"
         android:id="@+id/linearLayout"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp">
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
-        <EditText
-            android:id="@+id/editText10"
-            style="@style/editText_style"
-            android:layout_width="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="139dp"
-            android:layout_marginRight="139dp"
-            android:layout_marginTop="95dp"
-            android:hint="Course"
-            android:inputType="textPersonName"
-            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -66,6 +79,21 @@
             android:background="@color/cardview_light_background"
             android:timePickerMode="spinner" />
 
+
+        <EditText
+            android:id="@+id/editText10"
+            style="@style/editText_style"
+            android:layout_width="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="139dp"
+            android:layout_marginRight="139dp"
+            android:layout_marginTop="95dp"
+            android:hint="Course"
+            android:inputType="textPersonName"
+            android:textSize="19sp" />
+
         <EditText
             android:id="@+id/numerofppl"
             style="@style/editText_style"
@@ -90,6 +118,9 @@
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Create Group" />
+
+
+
 
     </LinearLayout>
 

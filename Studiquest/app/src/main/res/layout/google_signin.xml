@@ -13,7 +13,7 @@
      android:background="@drawable/back"
     android:layout_alignParentBottom="true"
     android:layout_alignParentRight="true"
-    tools:context="org.example.amylipsky.myapplication.MainActivity">
+    tools:context="org.example.amylipsky.myapplication.GoogleSignIn">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,14 +21,13 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
->
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="40dp"
-
 
 
             android:adjustViewBounds="true"
@@ -39,19 +38,21 @@
             style="@style/textView_style"
             android:layout_margin="5dp"
             android:text="Studiquest"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="30dp"
+            android:layout_weight="0.06" />
 
         <Button
             android:id="@+id/sign_in_button"
-            android:text="Sign in with your Google Account"
+            style="@style/button_style"
             android:layout_width="253dp"
             android:layout_height="42dp"
-            style="@style/button_style"
-            android:layout_marginTop="13dp"
             android:layout_centerInParent="true"
-            android:visibility="visible"
-            />
+            android:layout_marginTop="13dp"
+            android:text="Sign in with your Google Account"
+            android:visibility="visible" />
 
 
         <!--<Button-->

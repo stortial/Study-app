@@ -5,7 +5,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    android:background="@drawable/back"
+    android:background="@drawable/brick"
     android:fillViewport="true">
 
 
@@ -31,6 +31,8 @@
             style="@style/forcheck_box"
             android:layout_margin="5dp"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             android:text="@string/select_courses"
             android:textAppearance="?android:textAppearance"
             android:layout_gravity="center_horizontal"
@@ -42,6 +44,8 @@
             android:layout_height="wrap_content"
             style="@style/forcheck_box"
             android:id="@+id/check_boxx1"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="@string/AAS"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -49,12 +53,16 @@
             android:layout_height="wrap_content"
             style="@style/forcheck_box"
             android:id="@+id/check_boxx2"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="@string/AHI"
             android:onClick="selectedItem"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/AMS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:id="@+id/check_boxx3"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
@@ -62,6 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx4"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="@string/ANA"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
@@ -69,6 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/APY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:id="@+id/check_boxx5"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
@@ -78,6 +90,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx6"
             android:text="@string/ARC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -85,6 +99,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx7"
             android:text="@string/ARI"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -93,6 +109,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx8"
             android:text="@string/ART"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -100,6 +118,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx9"
             android:text="@string/AS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -107,6 +127,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx10"
             android:text="@string/ASL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -114,6 +136,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx11"
             android:text="@string/BCH"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -121,6 +145,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx12"
             android:text="@string/BE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -128,6 +154,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx13"
             android:text="@string/BIO"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -135,6 +163,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx14"
             android:text="@string/BMS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -142,6 +172,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx15"
             android:text="@string/CDS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -149,6 +181,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx16"
             android:text="@string/CE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -156,6 +190,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx17"
             android:text="@string/CEP"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -163,6 +199,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx18"
             android:text="@string/CHB"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -170,6 +208,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx19"
             android:text="@string/CHE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -177,6 +217,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx20"
             android:text="@string/CHI"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -184,6 +226,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx21"
             android:text="@string/CIE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -191,6 +235,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx22"
             android:text="@string/CL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -198,6 +244,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx23"
             android:text="@string/COL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -205,6 +253,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx24"
             android:text="@string/COM"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -212,6 +262,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx25"
             android:text="@string/CPM"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -220,12 +272,16 @@
             android:id="@+id/check_boxx26"
             android:text="@string/CSE"
             style="@style/forcheck_box"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:onClick="selectedItem"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx27"
             android:text="@string/DAC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -233,6 +289,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx28"
             android:text="@string/DMS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -240,6 +298,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx29"
             android:text="@string/EAS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -247,6 +307,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx30"
             android:text="@string/ECO"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -254,6 +316,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx31"
             android:text="@string/EE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -261,6 +325,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx32"
             android:text="@string/ELP"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -268,6 +334,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx33"
             android:text="@string/END"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -276,6 +344,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx34"
             android:text="@string/ENG"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -284,6 +354,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx35"
             android:text="@string/ES"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -292,6 +364,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx36"
             android:text="@string/ESL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -300,6 +374,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx37"
             android:text="@string/FR"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -308,6 +384,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx38"
             android:text="@string/GEO"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -316,6 +394,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx39"
             android:text="@string/GER"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -323,6 +403,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx40"
             android:text="@string/GGS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -330,6 +412,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx41"
             android:text="@string/GLY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -337,6 +421,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx42"
             android:text="@string/GR"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -344,6 +430,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx43"
             android:text="@string/GRE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -351,6 +439,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx44"
             android:text="@string/HEB"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -358,6 +448,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx45"
             android:text="@string/HIN"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -365,6 +457,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx46"
             android:text="@string/HIS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -372,6 +466,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx47"
             android:text="@string/HON"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -379,6 +475,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx48"
             android:text="@string/IE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -386,6 +484,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx49"
             android:text="@string/ITA"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -393,6 +493,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx50"
             android:text="@string/JDS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -401,6 +503,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx51"
             android:text="@string/JLS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -408,6 +512,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx52"
             android:text="@string/JPN"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -415,6 +521,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx53"
             android:text="@string/KOR"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -422,6 +530,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx54"
             android:text="@string/LAI"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -429,6 +539,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx55"
             android:text="@string/LAT"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -436,6 +548,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx56"
             android:text="@string/LIN"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -443,6 +557,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx57"
             android:text="@string/LLS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -451,6 +567,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx58"
             android:text="@string/MAE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -459,6 +577,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx59"
             android:text="@string/MCH"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -467,6 +587,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx60"
             android:text="@string/MFC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -475,6 +597,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx61"
             android:text="@string/MGA"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -482,6 +606,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx62"
             android:text="@string/MGB"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -489,6 +615,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx63"
             android:text="@string/MGF"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -497,6 +625,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx64"
             android:text="@string/MGG"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -504,6 +634,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx65"
             android:text="@string/MGI"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -511,6 +643,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx66"
             android:text="@string/MGM"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -519,6 +653,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx67"
             android:text="@string/MGO"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -526,6 +662,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx68"
             android:text="@string/MGQ"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -533,6 +671,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx69"
             android:text="@string/MGS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -540,6 +680,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx70"
             android:text="@string/MGT"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -547,6 +689,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx71"
             android:text="@string/MIC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -555,6 +699,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx72"
             android:text="@string/MLS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -563,6 +709,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx73"
             android:text="@string/MT"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -571,6 +719,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx74"
             android:text="@string/MTH"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -579,6 +729,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx75"
             android:text="@string/MTR"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -587,6 +739,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx76"
             android:text="@string/MUS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -595,6 +749,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx77"
             android:text="@string/NBC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -603,6 +759,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx78"
             android:text="@string/NBS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -611,6 +769,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx79"
             android:text="@string/NMD"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -619,6 +779,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx80"
             android:text="@string/NSG"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -628,6 +790,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx81"
             android:text="@string/NTR"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -635,6 +799,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx82"
             android:text="@string/OT"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -642,6 +808,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx83"
             android:text="@string/PGY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -649,6 +817,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx84"
             android:text="@string/PHC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -656,6 +826,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx85"
             android:text="@string/PHI"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -663,6 +835,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx86"
             android:text="@string/PHM"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -670,6 +844,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx87"
             android:text="@string/PHY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -677,6 +853,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx88"
             android:text="@string/PMY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -684,6 +862,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx89"
             android:text="@string/POL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -691,6 +871,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx90"
             android:text="@string/PS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -698,6 +880,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx91"
             android:text="@string/PSC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -705,12 +889,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx92"
             android:text="@string/PSY"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx93"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="@string/PUB"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
@@ -719,6 +907,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx94"
             android:text="@string/REC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -727,6 +917,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx95"
             android:text="@string/RLL"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -735,6 +927,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx96"
             android:text="@string/RSP"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -743,6 +937,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx97"
             android:text="@string/RUS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -750,6 +946,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx98"
             android:text="@string/SOC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -757,6 +955,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx99"
             android:text="@string/SPA"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <CheckBox
@@ -764,6 +964,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx100"
             android:text="@string/SSC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -772,6 +974,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx101"
             android:text="@string/STA"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -780,6 +984,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx102"
             android:text="@string/TH"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -788,6 +994,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx103"
             android:text="@string/UE"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -796,6 +1004,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx104"
             android:text="@string/UGC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -804,6 +1014,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx105"
             android:text="@string/ULC"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -812,6 +1024,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx106"
             android:text="@string/VS"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
 
@@ -820,6 +1034,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/check_boxx107"
             android:text="@string/YID"
+            android:textSize="18dp"
+            android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <Button
@@ -829,6 +1045,12 @@
             style="@style/button_style66"
             android:layout_gravity="center_horizontal"
             android:onClick="finalSelection"/>
+        <Button
+            android:id="@+id/backbutton"
+
+            android:layout_width="59dp"
+            android:layout_height="63dp"
+            android:background="@drawable/backarr"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

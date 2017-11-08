@@ -1,8 +1,10 @@
 package org.example.amylipsky.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -39,6 +41,29 @@ public class SelectCourses extends AppCompatActivity {
         setContentView(R.layout.select_courses);
         final_text = (TextView) findViewById(R.id.finalResult);
         final_text.setEnabled(false);
+
+
+
+
+
+
+        Button backarr =(Button) findViewById(R.id.backbutton);
+        backarr.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
+                startActivity(startIntent);
+
+
+            }
+
+
+        });
+
+
+
+
 
         //FirebaseUser currentUser = mAuth.getCurrentUser();
 
