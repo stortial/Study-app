@@ -6,6 +6,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,8 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
     private static ArrayList<String> endlist = new ArrayList<>();
     private static ArrayList<String> ppllist = new ArrayList<>();
     private static ArrayList<String> userCourses = new ArrayList<>();
+    private static ArrayList<String> User = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                 startlist.clear();
                 endlist.clear();
                 ppllist.clear();
+                User.clear();
 
                 //iterate through all children of groups
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
@@ -59,6 +63,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                     String locations = (String) snapshot.child("locations").getValue();
                     String numppl = (String) snapshot.child("numppl").getValue();
                     String starttime = (String) snapshot.child("starttime").getValue();
+                    String aUser = (String) snapshot.child("User").getValue();
 
                     //add each piece of data to the array list
                     location_list.add(locations);
@@ -66,6 +71,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                     startlist.add(starttime);
                     endlist.add(endtime);
                     ppllist.add(numppl);
+                    User.add(aUser);
 
                 }
             }
@@ -136,6 +142,8 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //clear all the markers from the map
         mMap.clear();
 
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        final String _User = currentUser.getUid(); //get Uid from Auth
 
         //creates a marker for every group
         for(int i = 0; i<location_list.size(); ++i) {
@@ -172,10 +180,17 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
                     //compare if this user course is equal to the course of the marker
                     if (them.equals(userCourses.get(j))) {
-                        //create the actual marker using provided info
-                        mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                                location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
 
+                        //determine if the marker was made by the current user
+                        if(_User.equals(User.get(i))){
+                            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(temp).title(" ").snippet(
+                                    location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+                        }
+                        else{
+                            //create the actual marker using provided info
+                            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
+                                    location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+                        }
                     }
 
                 }
