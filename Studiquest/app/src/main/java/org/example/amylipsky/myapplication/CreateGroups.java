@@ -14,6 +14,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -97,6 +98,9 @@ public class CreateGroups extends AppCompatActivity {
         _EndTime = (TimePicker) findViewById(R.id.TimePicker2);
         _NumberOfPeople = (EditText) findViewById(R.id.numerofppl);
         Button buttonAddGroup = (Button) findViewById(R.id.AddGroup);
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        final String _User = currentUser.getUid(); //get Uid from Auth
 
         database = FirebaseDatabase.getInstance();
         // initialize = database.getReference("groups").child("Initialize Group");
@@ -185,6 +189,10 @@ public class CreateGroups extends AppCompatActivity {
                     groupRef.child(groupID).child("numppl").setValue(numppl);
                     toastMessage("Adding " + numppl + " to database...");
                     // reset the text
+                    _NumberOfPeople.setText("");
+                }
+                if (!_User.equals("")) {
+                    groupRef.child(groupID).child("User").setValue(_User);
                     _NumberOfPeople.setText("");
                 }
             }
