@@ -12,7 +12,7 @@
     android:gravity="center"
     android:layout_alignParentBottom="true"
     tools:context="org.example.amylipsky.myapplication.GoogleSignIn"
-    android:background="@drawable/back">
+    android:background="@drawable/blueback">
 
 
 
@@ -21,66 +21,69 @@
         android:layout_width="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical"
-
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
         android:layout_height="wrap_content"
         android:weightSum="1"
         android:id="@+id/linearLayout"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="245dp"
-            android:layout_height="155dp"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:layout_margin="5dp"
 
-            app:srcCompat="@drawable/studi" />
+            app:srcCompat="@drawable/studiquest_round" />
 
 
         <Button
             android:id="@+id/creategroup"
+            android:layout_width="353dp"
+            android:layout_height="52dp"
+            android:background="@drawable/creategroupsbtn"
+
             style="@style/button_style"
-
-            android:layout_width="253dp"
-            android:layout_height="42dp"
-
-
             android:layout_marginTop="13dp"
-            android:text="@string/create_groups" />
+
+            android:gravity="center" />
 
         <Button
             android:id="@+id/googlemap"
             style="@style/button_style"
-
-            android:layout_width="253dp"
-            android:layout_height="42dp"
+            android:background="@drawable/gmapsbtn"
+            android:layout_width="353dp"
+            android:layout_height="52dp"
 
             android:layout_marginTop="13dp"
-            android:text="Find Groups using Google Maps" />
+           />
 
         <Button
         android:id="@+id/button4"
         style="@style/button_style"
 
-        android:layout_width="253dp"
-        android:layout_height="42dp"
+        android:layout_width="353dp"
+        android:layout_height="52dp"
         android:layout_marginTop="13dp"
+            android:background="@drawable/selcoursesbtn"
 
 
-        android:text="@string/select_courses" />
+            />
 
 
         <Button
             android:id="@+id/logout"
             style="@style/button_style"
 
-            android:layout_width="253dp"
-            android:layout_height="42dp"
+            android:layout_width="353dp"
+            android:layout_height="52dp"
             android:layout_marginTop="13dp"
             android:onClick="signOut"
-                android:text="Log Out"/>
+            android:background="@drawable/logoutbtnn"/>
 
         <TextView
             android:id="@+id/textView"

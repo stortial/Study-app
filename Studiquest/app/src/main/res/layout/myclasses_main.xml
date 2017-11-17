@@ -5,16 +5,26 @@
 <!-- as well as the select courses xml file and will be apart of our add on features-->
 
 
+
+
+
+
+
+
+
+
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical"
 android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
 android:layout_height="match_parent"
 android:layout_gravity="center"
-android:paddingBottom="10dp"
+
+    android:paddingBottom="10dp"
 android:paddingLeft="10dp"
 android:paddingRight="10dp"
-    android:background="@drawable/brick"
+    android:background="@drawable/linedpaper"
 
     android:paddingTop="10dp"
         android:weightSum="1"
@@ -29,6 +39,7 @@ android:paddingRight="10dp"
     android:gravity="center"
     android:layout_margin="5dp"
     android:textStyle="bold"
+    android:textColor="#FB03051A"
     android:inputType="textPersonName"
     android:text="My Courses"
 
@@ -42,6 +53,9 @@ android:paddingRight="10dp"
         android:id="@+id/my_recycler_view"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
+        android:textColor="#F6F9FBFC"
+
+
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 
@@ -51,29 +65,34 @@ android:paddingRight="10dp"
 <Button
     android:id="@+id/addClasses"
     style="@style/button_style"
+    android:background="@drawable/addclassesbtn"
     android:layout_width="match_parent"
-    android:layout_height="42dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="13dp"
-    android:text="Add Classes" />
+     />
 
 <Button
     android:id="@+id/removeClass"
     style="@style/button_style"
+    android:background="@drawable/removeclassbtn"
     android:layout_width="match_parent"
-    android:layout_height="42dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="13dp"
-    android:text="Remove Classes" />
+     />
 
 
     <Button
         android:id="@+id/backbutton"
 
-        android:layout_width="59dp"
-        android:layout_height="63dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="@drawable/backarr"
       />
 
 
 
-    </LinearLayout>
+
+
+
+</LinearLayout>
 

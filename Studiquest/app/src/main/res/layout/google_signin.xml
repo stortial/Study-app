@@ -10,7 +10,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-     android:background="@drawable/back"
+    android:background="@drawable/back"
     android:layout_alignParentBottom="true"
     android:layout_alignParentRight="true"
     tools:context="org.example.amylipsky.myapplication.GoogleSignIn">
@@ -56,24 +56,24 @@
 
 
         <!--<Button-->
-            <!--android:id="@+id/button"-->
-            <!--style="@style/button_style"-->
+        <!--android:id="@+id/button"-->
+        <!--style="@style/button_style"-->
 
-            <!--android:text="Log In"-->
-            <!--/>-->
+        <!--android:text="Log In"-->
+        <!--/>-->
 
 
 
 
         <!--<Button-->
-            <!--android:id="@+id/NewUser"-->
-            <!--style="@style/textView_style"-->
+        <!--android:id="@+id/NewUser"-->
+        <!--style="@style/textView_style"-->
 
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textAllCaps="false"-->
-            <!--android:layout_gravity="bottom"-->
-            <!--android:background="@android:color/transparent"-->
-            <!--android:text="New User?" />-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:text="New User?" />-->
     </LinearLayout>
 
 </RelativeLayout>

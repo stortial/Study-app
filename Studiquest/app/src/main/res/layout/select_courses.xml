@@ -5,7 +5,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    android:background="@drawable/brick"
+    android:background="@drawable/blueback"
     android:fillViewport="true">
 
 
@@ -20,8 +20,8 @@
 
 
         android:layout_centerHorizontal="true"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
 
 
@@ -1039,23 +1039,23 @@
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <Button
-            android:layout_width="202dp"
+            android:layout_width="241dp"
             android:layout_height="wrap_content"
-            android:text="Show Selected Items"
-            style="@style/button_style66"
+            android:background="@drawable/selecteditems"
             android:layout_gravity="center_horizontal"
-            android:onClick="finalSelection"/>
+            android:onClick="finalSelection" />
         <Button
             android:id="@+id/backbutton"
 
-            android:layout_width="59dp"
-            android:layout_height="63dp"
+            android:layout_width="42dp"
+            android:layout_height="37dp"
             android:background="@drawable/backarr"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/finalResult"
-            android:text="sfjshfjhsjfhsj"/>
+            android:textColor="#F6F9FBFC"
+            android:text=" "/>
 
         </LinearLayout>
     </ScrollView>

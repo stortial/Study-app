@@ -2,6 +2,7 @@ package org.example.amylipsky.myapplication;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
@@ -21,6 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static org.example.amylipsky.myapplication.R.id.AddGroup;
+import static org.example.amylipsky.myapplication.R.id.desc;
+
 
 public class CreateGroups extends AppCompatActivity {
 
@@ -35,15 +39,20 @@ public class CreateGroups extends AppCompatActivity {
 
 
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private EditText _Course;
+   private EditText coursepre;
     private TimePicker _StartTime;
     private TimePicker _EndTime;
-    private EditText _NumberOfPeople;
+    private EditText descrip;
     private String groupID;
     private static final String TAG = "DataBase";
 
-    Button button;
+    Button button, prefixbtn;
+    Button testing;
+    private String theCourse = "";
 
+    public EditText getDescrip() {
+        return descrip;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,23 +60,21 @@ public class CreateGroups extends AppCompatActivity {
         setContentView(R.layout.create_group);
 
 
-
-        Button backarr =(Button) findViewById(R.id.backbutton);
-        backarr.setOnClickListener(new View.OnClickListener() {
-
-
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                startActivity(startIntent);
-
-
-            }
-
-
-        });
-
-
-        button = (Button) findViewById(R.id.location);
+//        Button backarr = (Button) findViewById(R.id.backbutton);
+//        backarr.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            public void onClick(View v) {
+//                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+//                startActivity(startIntent);
+//
+//
+//            }
+//
+//
+//        });
+        //locations button
+        button = (Button) findViewById(R.id.button3);
         button.setOnClickListener(new View.OnClickListener() {
 
 
@@ -92,12 +99,29 @@ public class CreateGroups extends AppCompatActivity {
             }
         });
 
+        //MEL:prefix buton that lets u go to radiobtn class/upper left
+        prefixbtn = (Button) findViewById(R.id.location);
+        prefixbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        _Course = (EditText) findViewById(R.id.editText10);
+
+                Intent startIntent = new Intent(getApplicationContext(), RadioBtn.class);
+                startActivity(startIntent);
+
+
+            }
+        });
+
+        // MEL: _Course=(EditText) findViewById(R.id.courseprefix);
+        coursepre = (EditText) findViewById(R.id.courseprefix);
         _StartTime = (TimePicker) findViewById(R.id.TimePicker1);
         _EndTime = (TimePicker) findViewById(R.id.TimePicker2);
-        _NumberOfPeople = (EditText) findViewById(R.id.numerofppl);
-        Button buttonAddGroup = (Button) findViewById(R.id.AddGroup);
+        //MEL:Numpler of people edit text
+        descrip= (EditText) findViewById(desc);
+        Button buttonAddGroup = (Button) findViewById(AddGroup);
+        descrip.setTextColor(Color.WHITE);
+       descrip.setSelection(descrip.length());
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         final String _User = currentUser.getUid(); //get Uid from Auth
@@ -138,7 +162,8 @@ public class CreateGroups extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Attempting to add object to database.");
-                String course = _Course.getText().toString();
+                String course = prefixbtn.getText().toString() + coursepre.getText().toString() ;
+                //MEL: _Course.getText().toString()
 
                 String starttime = "";
                 String amPm = "";
@@ -168,14 +193,15 @@ public class CreateGroups extends AppCompatActivity {
                     endtime += "0";
                 }
                 endtime += _EndTime.getMinute() + amPm;
-
-                String numppl = _NumberOfPeople.getText().toString();
+                //numberofpeople where purple text is
+                String numppl = descrip.getText().toString();
 
                 if (!course.equals("")) {
                     groupRef.child(groupID).child("course").setValue(course);
                     toastMessage("Adding " + course + " to database...");
                     // reset the text
-                    _Course.setText("");
+                    //mel:_course
+                    coursepre.setText("");
                 }
                 if (!starttime.equals("")) {
                     groupRef.child(groupID).child("starttime").setValue(starttime);
@@ -189,17 +215,18 @@ public class CreateGroups extends AppCompatActivity {
                     groupRef.child(groupID).child("numppl").setValue(numppl);
                     toastMessage("Adding " + numppl + " to database...");
                     // reset the text
-                    _NumberOfPeople.setText("");
+                    //MEL: used to be _Numberofpeople
+                    descrip.setText("");
                 }
                 if (!_User.equals("")) {
                     groupRef.child(groupID).child("User").setValue(_User);
-                    _NumberOfPeople.setText("");
+                    //MEL: used to be _Numberofpeople
+                    descrip.setText("");
                 }
             }
         });
     }
-
-
+    
 
         private void toastMessage(String message) {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

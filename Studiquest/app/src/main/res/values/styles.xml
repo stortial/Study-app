@@ -31,7 +31,7 @@
     </style>
 
     <style name="button_style2">
-        <item name="android:background">@drawable/button_background2</item>
+        <item name="android:background">@drawable/button_background3</item>
         <item name="android:layout_margin">32dp</item>
         <item name="android:textColor">#FDFDFE</item>
         <item name="android:textSize">22sp</item>
@@ -41,7 +41,7 @@
     </style>
 
     <style name="button_style3">
-        <item name="android:background">@drawable/button_background2</item>
+        <item name="android:background">@drawable/button_background3</item>
         <item name="android:layout_margin">32dp</item>
         <item name="android:textColor">#FDFDFE</item>
         <item name="android:textSize">22sp</item>
@@ -141,6 +141,16 @@
     <item name="android:layout_height">wrap_content</item>
         </style>
 
+
+
+    <!--<style name="RadioButton">-->
+        <!--<item name="android:button">@null</item>-->
+        <!--<item name="android:background">@drawable/bg_toggle_checked</item>-->
+        <!--<item name="android:textColor">@color/smokyBlack</item>-->
+        <!--<item name="android:gravity">center</item>-->
+        <!--<item name="android:padding">8dp</item>-->
+        <!--<item name="android:layout_margin">8dp</item>-->
+    <!--</style>-->
 
 
 </resources>

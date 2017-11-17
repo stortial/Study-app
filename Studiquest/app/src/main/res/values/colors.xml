@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#446ec4</color>
     <color name="colorAccent">#9c0e86e4</color>
-    <color name="cbutton">#f63cb6ef</color>
+    <color name="cbutton">#f60d65f2</color>
+    <color name="vividCerise">#da1d81</color>
+    <color name="smokyBlack">#100c08</color>
+    <color name="white">#FFFFFF</color>
+
 
 </resources>

@@ -38,8 +38,8 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".CreateGroups" />
         <activity android:name=".MyClassesActivity" />
-
-        <activity android:name=".SelectCourses"/>
+        <activity android:name=".SelectCourses" />
+        <activity android:name=".RadioBtn"></activity>
     </application>
 
 </manifest>
