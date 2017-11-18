@@ -4,6 +4,7 @@ package org.example.amylipsky.myapplication;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -22,6 +23,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
 import static org.example.amylipsky.myapplication.R.id.AddGroup;
 import static org.example.amylipsky.myapplication.R.id.desc;
 
@@ -37,9 +43,33 @@ public class CreateGroups extends AppCompatActivity {
     private DatabaseReference locationMarker;
     private String locationID;
 
+    public static long convert(String time){
+
+        long endTime;
+
+        String Hours;
+        String Minutes;
+
+        Calendar cal = Calendar.getInstance();
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:MM");
+            Date date = sdf.parse(time);
+
+            cal.setTime(date);
+        }
+        catch(java.text.ParseException e){
+            e.printStackTrace();
+        }
+        int minutes = cal.get(Calendar.HOUR)*60+cal.get(Calendar.MINUTE);
+
+        endTime = (minutes*60)*1000;
+
+        return endTime;
+    }
 
     private FirebaseAuth.AuthStateListener mAuthListener;
-   private EditText coursepre;
+    private EditText coursepre;
     private TimePicker _StartTime;
     private TimePicker _EndTime;
     private EditText descrip;
