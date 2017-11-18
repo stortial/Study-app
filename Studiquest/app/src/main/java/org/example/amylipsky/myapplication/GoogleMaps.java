@@ -27,11 +27,10 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
     private static ArrayList<String> location_list = new ArrayList<>();
     private static ArrayList<String> courselist = new ArrayList<>();
-    private static ArrayList<String> startlist = new ArrayList<>();
     private static ArrayList<String> endlist = new ArrayList<>();
-    private static ArrayList<String> ppllist = new ArrayList<>();
     private static ArrayList<String> userCourses = new ArrayList<>();
     private static ArrayList<String> User = new ArrayList<>();
+    private static ArrayList<String> details_list = new ArrayList<>();
 
 
     @Override
@@ -43,10 +42,6 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         setSupportActionBar(myToolbar);
 
         myToolbar.setTitle("StudyQuest");
-
-
-        //ActionBar actionBar = getActionBar();
-        //actionBar.setTitle("StudyQuest");
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         final String _User = currentUser.getUid(); //get Uid from Auth
@@ -60,10 +55,9 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
                 location_list.clear();
                 courselist.clear();
-                startlist.clear();
                 endlist.clear();
-                ppllist.clear();
                 User.clear();
+                details_list.clear();
 
                 //iterate through all children of groups
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
@@ -72,17 +66,16 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                     String course = (String) snapshot.child("course").getValue();
                     String endtime = (String) snapshot.child("endtime").getValue();
                     String locations = (String) snapshot.child("locations").getValue();
-                    String numppl = (String) snapshot.child("numppl").getValue();
-                    String starttime = (String) snapshot.child("starttime").getValue();
                     String aUser = (String) snapshot.child("User").getValue();
+                    String details = (String) snapshot.child("description").getValue();
+
 
                     //add each piece of data to the array list
                     location_list.add(locations);
                     courselist.add(course);
-                    startlist.add(starttime);
                     endlist.add(endtime);
-                    ppllist.add(numppl);
                     User.add(aUser);
+                    details_list.add(details);
 
                 }
             }
@@ -117,7 +110,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //delay the program for 5 seconds
         //  it takes a few sec to read from the database so hold your horses
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -194,13 +187,11 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
                         //determine if the marker was made by the current user
                         if(_User.equals(User.get(i))){
-                            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(temp).title(" ").snippet(
-                                    location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+                            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(temp).title(location_list.get(i)+' '+courselist.get(i)).snippet(details_list.get(i)));
                         }
                         else{
                             //create the actual marker using provided info
-                            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                                    location_list.get(i) + " " + courselist.get(i) + " " + startlist.get(i) + " " + endlist.get(i) + " " + ppllist.get(i)));
+                            mMap.addMarker(new MarkerOptions().position(temp).title(location_list.get(i)+' '+courselist.get(i)).snippet(details_list.get(i)));
                         }
                     }
 
