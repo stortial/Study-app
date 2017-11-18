@@ -58,7 +58,8 @@ public class CreateGroups extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
-
+     TimePicker tp= (TimePicker) this.findViewById(R.id.TimePicker2);
+        tp.setIs24HourView(true);
 
 //        Button backarr = (Button) findViewById(R.id.backbutton);
 //        backarr.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +116,7 @@ public class CreateGroups extends AppCompatActivity {
 
         // MEL: _Course=(EditText) findViewById(R.id.courseprefix);
         coursepre = (EditText) findViewById(R.id.courseprefix);
-        _StartTime = (TimePicker) findViewById(R.id.TimePicker1);
+       // _StartTime = (TimePicker) findViewById(R.id.TimePicker1);
         _EndTime = (TimePicker) findViewById(R.id.TimePicker2);
         //MEL:Numpler of people edit text
         descrip= (EditText) findViewById(desc);
@@ -165,20 +166,20 @@ public class CreateGroups extends AppCompatActivity {
                 String course = prefixbtn.getText().toString() + coursepre.getText().toString() ;
                 //MEL: _Course.getText().toString()
 
-                String starttime = "";
+        String starttime = "";
                 String amPm = "";
-                if(_StartTime.getHour() > 12){
-                    starttime += (_StartTime.getHour() - 12);
-                    amPm = "PM";
-                } else {
-                    starttime += _StartTime.getHour();
-                    amPm = "AM";
-                }
-                starttime += ":";
-                if(_StartTime.getMinute() < 10){
-                    starttime += "0";
-                }
-                starttime += _StartTime.getMinute() + amPm;
+//                if(_StartTime.getHour() > 12){
+//                    starttime += (_StartTime.getHour() - 12);
+//                    amPm = "PM";
+//                } else {
+//                    starttime += _StartTime.getHour();
+//                    amPm = "AM";
+//                }
+//                starttime += ":";
+//                if(_StartTime.getMinute() < 10){
+//                    starttime += "0";
+//                }
+//                starttime += _StartTime.getMinute() + amPm;
 
                 String endtime = "";
                 if(_EndTime.getHour() > 12){
@@ -226,7 +227,7 @@ public class CreateGroups extends AppCompatActivity {
             }
         });
     }
-    
+
 
         private void toastMessage(String message) {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

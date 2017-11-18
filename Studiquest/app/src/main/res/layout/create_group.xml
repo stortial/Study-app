@@ -10,18 +10,18 @@
     tools:context="org.example.amylipsky.myapplication.CreateGroups"
     android:background="@drawable/blueback">
 
+
     <Button
 
         android:id="@+id/AddGroup"
-        android:layout_width="144dp"
+        android:layout_width="188dp"
         android:layout_height="54dp"
-        android:gravity="bottom"
-        android:layout_marginBottom="42dp"
-        android:background="@drawable/creategroupbtn"
+        android:gravity="center"
+        android:background="@drawable/startgroupbtn"
 
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_below="@+id/textView5" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp" />" />
     <!--<Button-->
         <!--android:id="@+id/backbutton"-->
 
@@ -36,39 +36,39 @@
         <!--android:layout_toStartOf="@+id/linearLayout" />-->
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="68dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/smallstudi"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:layout_marginLeft="31dp"
-        android:layout_marginStart="31dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_centerHorizontal="true" />
 
     <Button
 
         android:id="@+id/location"
         android:background="@drawable/courseprefixbtn"
-        android:layout_width="138dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_below="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_alignBaseline="@+id/courseprefix"
+        android:layout_alignBottom="@+id/courseprefix"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
 
     <EditText
         android:id="@+id/courseprefix"
         android:background="@drawable/coursenumber"
-        android:layout_width="138dp"
-        android:layout_height="50dp"
-        android:hint="  Course Number "
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:hint="      Course Number "
         android:inputType="textPersonName"
         android:textSize="16sp"
-        android:layout_above="@+id/button3"
-        android:layout_toRightOf="@+id/imageView4" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/imageView4"
+        android:layout_toRightOf="@+id/imageView4"
+        android:layout_toEndOf="@+id/imageView4" />
 
 
 
@@ -108,91 +108,95 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="138dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
         android:background="@drawable/locbtn"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="51dp"
-        android:layout_marginStart="51dp"
+
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/location"
-        android:layout_alignLeft="@+id/TimePicker1"
-        android:layout_alignStart="@+id/TimePicker1" />
+        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:text="Start Time"
-        android:textAlignment="center"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="19sp"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="9dp"-->
+        <!--android:text="Current Time"-->
+        <!--android:textAlignment="center"-->
+        <!--android:textColor="@color/cardview_light_background"-->
+        <!--android:textSize="19sp"-->
+        <!--android:layout_below="@+id/button3"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 
-    <TimePicker
-        android:id="@+id/TimePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="97dp"
-        android:background="@color/cardview_light_background"
-        android:timePickerMode="spinner"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/TimePicker2"
-        android:layout_alignStart="@+id/TimePicker2"
-        android:layout_marginTop="11dp" />
+    <!--<TimePicker-->
+        <!--android:id="@+id/TimePicker1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="97dp"-->
+        <!--android:background="@color/cardview_light_background"-->
+        <!--android:timePickerMode="spinner"-->
+        <!--android:layout_below="@+id/textView3"-->
+        <!--android:layout_alignLeft="@+id/TimePicker2"-->
+        <!--android:layout_alignStart="@+id/TimePicker2"-->
+        <!--android:layout_marginTop="11dp" />-->
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="End Time"
+        android:text="Duration"
+        android:textStyle="bold"
+
         android:textAlignment="center"
         android:textColor="@color/cardview_light_background"
-        android:textSize="19sp"
-        android:layout_below="@+id/TimePicker1"
-        android:layout_alignLeft="@+id/location"
-        android:layout_alignStart="@+id/location" />
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TimePicker
         android:id="@+id/TimePicker2"
         android:layout_width="wrap_content"
-        android:layout_height="95dp"
+        android:layout_height="110dp"
+        android:background="@color/cardview_light_background"
+        android:timePickerMode="spinner"
+
+        android:gravity="center"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:background="@color/cardview_light_background"
-        android:timePickerMode="spinner" />
+        android:layout_marginTop="15dp" />
 
 
       <EditText
         android:id="@+id/desc"
         android:background="@drawable/descriptionbox"
-        android:layout_width="266dp"
-        android:layout_height="96dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
           android:inputType="textMultiLine"
+
         android:textColorHint="@color/white"
           android:hint="
-          *Make it easy to find other users*
- (Ex:floor number(ex.F2),blue hat,red shirt)"
+    (Ex:Floor number, orange shirt, red hat, pink jacket, etc.)
+          (40 Characters Max) "
           android:gravity="center"
           android:textSize="15sp"
-          android:singleLine="true"
 
+          android:layout_marginTop="19dp"
           android:layout_below="@+id/TimePicker2"
-          android:layout_centerHorizontal="true"
-          android:layout_marginTop="10dp" />
+          android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="(15 Characters Max) "
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:layout_below="@+id/desc"
-        android:layout_alignLeft="@+id/AddGroup"
-        android:layout_alignStart="@+id/AddGroup" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:text="(40 Characters Max) "-->
+        <!--android:textSize="14sp"-->
+        <!--android:textStyle="italic"-->
+        <!--android:layout_below="@+id/desc"-->
+        <!--android:layout_alignRight="@+id/button3"-->
+        <!--android:layout_alignEnd="@+id/button3" />-->
 
 
 </RelativeLayout>
