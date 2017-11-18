@@ -59,6 +59,9 @@ public class CreateGroups extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
+        TimePicker tp = (TimePicker) this.findViewById(R.id.TimePicker2);
+        tp.setIs24HourView(true);
+
 
 //        Button backarr = (Button) findViewById(R.id.backbutton);
 //        backarr.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,8 @@
 package org.example.amylipsky.myapplication;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +38,15 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_maps);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        myToolbar.setTitle("StudyQuest");
+
+
+        //ActionBar actionBar = getActionBar();
+        //actionBar.setTitle("StudyQuest");
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         final String _User = currentUser.getUid(); //get Uid from Auth
