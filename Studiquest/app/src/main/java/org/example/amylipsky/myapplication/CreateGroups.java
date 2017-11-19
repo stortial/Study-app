@@ -53,6 +53,8 @@ public class CreateGroups extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
+        final TimePicker tp = (TimePicker) this.findViewById(R.id.TimePicker2);
+        tp.setIs24HourView(true);
 
 //        Button backarr = (Button) findViewById(R.id.backbutton);
 //        backarr.setOnClickListener(new View.OnClickListener() {
@@ -156,9 +158,25 @@ public class CreateGroups extends AppCompatActivity {
                     groupRef.child(groupID).child("description").setValue(descriptions);
 
                 }
+                long endtime = 0;
+                if(tp.getHour() < 24){
+                    endtime += 60*60*1000*(tp.getHour());
+                }
+                if(tp.getMinute() < 10){
+                    endtime += 60*1000*(tp.getMinute());
+                }
+               /* String endtime = "";
+                    endtime += (tp.getHour());
+
+                }
+                endtime += ":";
+                if(tp.getMinute() < 10){
+                    endtime += "0";
+                }
+                endtime += tp.getMinute();*/
 
                 long StartTime = System.currentTimeMillis();
-                //int addHour =
+                groupRef.child(groupID).child("timestamp").setValue(StartTime + endtime);
             }
         });
     }
