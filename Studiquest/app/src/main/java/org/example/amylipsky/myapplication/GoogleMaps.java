@@ -215,13 +215,11 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
                         //determine if the marker was made by the current user
                         if(_User.equals(User.get(i))){
-                            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(temp).title(" ").snippet(
-                                    location_list.get(i) + " " + courselist.get(i) + " " + timelist.get(i) + " " + desclist.get(i)));
+                            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(temp).title(courselist.get(i) + " at " + location_list.get(i)).snippet(desclist.get(i)));
                         }
                         else{
                             //create the actual marker using provided info
-                            mMap.addMarker(new MarkerOptions().position(temp).title(" ").snippet(
-                                    location_list.get(i) + " " + courselist.get(i) + " " + timelist.get(i) + " " + desclist.get(i)));
+                            mMap.addMarker(new MarkerOptions().position(temp).title(courselist.get(i) + " at " + location_list.get(i)).snippet(desclist.get(i)));
                         }
                     }
 

@@ -1265,8 +1265,10 @@ public class SelectCourses2 extends AppCompatActivity {
 
         if (isSelected == true)
         {
-            Intent startIntent = new Intent(getApplicationContext(), CreateGroups.class);
-            startActivity(startIntent);
+            finish();
+
+            //Intent startIntent = new Intent(getApplicationContext(), CreateGroups.class);
+            //startActivity(startIntent);
         }
 
         isSelected = false;

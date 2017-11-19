@@ -166,6 +166,7 @@ public class CreateGroups extends AppCompatActivity {
                     endtime += 60*1000*(tp.getMinute());
                 }
                /* String endtime = "";
+                if(tp.getHour() < 24){
                     endtime += (tp.getHour());
 
                 }
@@ -177,6 +178,9 @@ public class CreateGroups extends AppCompatActivity {
 
                 long StartTime = System.currentTimeMillis();
                 groupRef.child(groupID).child("timestamp").setValue(StartTime + endtime);
+
+
+                finish();
             }
         });
     }
