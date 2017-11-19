@@ -41,7 +41,10 @@
         <activity android:name=".CreateGroups" />
         <activity android:name=".MyClassesActivity" />
         <activity android:name=".SelectCourses" />
-        <activity android:name=".RadioBtn"></activity>
+        <activity android:name=".RadioBtn" />
+        <activity android:name=".SelectCourses2">
+
+        </activity>
     </application>
 
 </manifest>
