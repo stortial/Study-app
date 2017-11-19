@@ -129,16 +129,16 @@
         <!--android:layout_alignParentLeft="true"-->
         <!--android:layout_alignParentStart="true" />-->
 
-    <!--<TimePicker-->
-        <!--android:id="@+id/TimePicker1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="97dp"-->
-        <!--android:background="@color/cardview_light_background"-->
-        <!--android:timePickerMode="spinner"-->
-        <!--android:layout_below="@+id/textView3"-->
-        <!--android:layout_alignLeft="@+id/TimePicker2"-->
-        <!--android:layout_alignStart="@+id/TimePicker2"-->
-        <!--android:layout_marginTop="11dp" />-->
+    <!--<TimePicker
+        android:id="@+id/TimePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="97dp"
+        android:background="@color/cardview_light_background"
+        android:timePickerMode="spinner"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/TimePicker2"
+        android:layout_alignStart="@+id/TimePicker2"
+        android:layout_marginTop="11dp" />-->
 
     <TextView
         android:id="@+id/textView4"
@@ -168,23 +168,23 @@
         android:layout_marginTop="15dp" />
 
 
-      <EditText
+    <EditText
         android:id="@+id/desc"
-        android:background="@drawable/descriptionbox"
         android:layout_width="300dp"
         android:layout_height="100dp"
-          android:inputType="textMultiLine"
+        android:layout_below="@+id/TimePicker2"
+        android:layout_centerHorizontal="true"
 
-        android:textColorHint="@color/white"
-          android:hint="
+        android:layout_marginTop="19dp"
+        android:background="@drawable/descriptionbox"
+        android:gravity="center"
+        android:hint="
     (Ex:Floor number, orange shirt, red hat, pink jacket, etc.)
           (40 Characters Max) "
-          android:gravity="center"
-          android:textSize="15sp"
 
-          android:layout_marginTop="19dp"
-          android:layout_below="@+id/TimePicker2"
-          android:layout_centerHorizontal="true" />
+        android:inputType="textMultiLine|textShortMessage"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
 
     <!--<TextView-->
         <!--android:id="@+id/textView3"-->
