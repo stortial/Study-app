@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.graphics.Color;
+import android.view.View;
+import android.widget.Button;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.ServerValue;
 
+import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -41,6 +45,8 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
     private static ArrayList<String> GroupID = new ArrayList<>();
     private DatabaseReference groupRef;
 
+    Button refreshbttn;
+    boolean isRefreshed = false;
 
 
     @Override
@@ -66,47 +72,114 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
         //  note, this happens after the first time the map is created
         //  to fix this just back out and then go back in
 
-        FirebaseDatabase.getInstance().getReference().child("groups").addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+        refreshbttn = (Button) findViewById(R.id.refreshbutton);
+        refreshbttn.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onClick(View view){
 
-                location_list.clear();
-                courselist.clear();
-                timelist.clear();
-                desclist.clear();
-                User.clear();
-                GroupID.clear();
+                isRefreshed = true;
+                FirebaseDatabase.getInstance().getReference().child("groups").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //iterate through all children of groups
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        location_list.clear();
+                        courselist.clear();
+                        timelist.clear();
+                        desclist.clear();
+                        User.clear();
+                        GroupID.clear();
 
-                    //put each piece of data into the appropriate variable
-                    String course = (String) snapshot.child("course").getValue();
-                    String locations = (String) snapshot.child("locations").getValue();
-                    String description = (String) snapshot.child("description").getValue();
-                    Long TimeStamp = (Long) snapshot.child("timestamp").getValue();
-                    String aUser = (String) snapshot.child("User").getValue();
-                    String GID = (String) snapshot.getKey();
+                        //iterate through all children of groups
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                            //put each piece of data into the appropriate variable
+                            String course = (String) snapshot.child("course").getValue();
+                            String locations = (String) snapshot.child("locations").getValue();
+                            String description = (String) snapshot.child("description").getValue();
+                            Long TimeStamp = (Long) snapshot.child("timestamp").getValue();
+                            String aUser = (String) snapshot.child("User").getValue();
+                            String GID = (String) snapshot.getKey();
 
 
-                    //add each piece of data to the array list
-                    location_list.add(locations);
-                    courselist.add(course);
-                    timelist.add(TimeStamp);
-                    desclist.add(description);
-                    User.add(aUser);
-                    GroupID.add(GID);
+                            //add each piece of data to the array list
+                            location_list.add(locations);
+                            courselist.add(course);
+                            timelist.add(TimeStamp);
+                            desclist.add(description);
+                            User.add(aUser);
+                            GroupID.add(GID);
 
-                    //}
+                            //}
 
+
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                checkMarkers();
+            }
+
+
+
+        });
+
+        if(isRefreshed == false){
+            FirebaseDatabase.getInstance().getReference().child("groups").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    location_list.clear();
+                    courselist.clear();
+                    timelist.clear();
+                    desclist.clear();
+                    User.clear();
+                    GroupID.clear();
+
+                    //iterate through all children of groups
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                        //put each piece of data into the appropriate variable
+                        String course = (String) snapshot.child("course").getValue();
+                        String locations = (String) snapshot.child("locations").getValue();
+                        String description = (String) snapshot.child("description").getValue();
+                        Long TimeStamp = (Long) snapshot.child("timestamp").getValue();
+                        String aUser = (String) snapshot.child("User").getValue();
+                        String GID = (String) snapshot.getKey();
+
+
+                        //add each piece of data to the array list
+                        location_list.add(locations);
+                        courselist.add(course);
+                        timelist.add(TimeStamp);
+                        desclist.add(description);
+                        User.add(aUser);
+                        GroupID.add(GID);
+
+                        //}
+
+
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
                 }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+            });
 
-            }
-        });
+            checkMarkers();
+        }
+
+
+
+    }
+
+
+        public void checkMarkers(){
         for(int i = 0; i < timelist.size();i++)
         {
             long CurrentTime = System.currentTimeMillis();
@@ -115,42 +188,46 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
                 groupRef.child(GroupID.get(i)).removeValue();
             }
         }
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            final String _User = currentUser.getUid(); //get Uid from Auth
+
+
         FirebaseDatabase.getInstance().getReference().child("users").child(_User).child("Courses").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-                userCourses.clear();
+                    userCourses.clear();
 
-                //iterate through the courses
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    //iterate through the courses
+                    for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
 
-                    String theCourse = (String) snapshot.getKey();
+                        String theCourse = (String) snapshot.getKey();
 
-                    userCourses.add(theCourse);
+                        userCourses.add(theCourse);
+                    }
                 }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            //delay the program for 5 seconds
+            //  it takes a few sec to read from the database so hold your horses
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+            //build the actual map from google magic
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
 
-            }
-        });
-
-        //delay the program for 5 seconds
-        //  it takes a few sec to read from the database so hold your horses
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            //last line of google magic
+            mapFragment.getMapAsync(this);
         }
-
-        //build the actual map from google magic
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-
-        //last line of google magic
-        mapFragment.getMapAsync(this);
-    }
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -229,5 +306,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback 
 
     }
 
+
 }
+
 

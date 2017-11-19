@@ -44,4 +44,13 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp" />
 
+    <Button
+        android:id="@+id/refreshbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/my_toolbar"
+        android:text="Refresh" />
+
 </RelativeLayout>
