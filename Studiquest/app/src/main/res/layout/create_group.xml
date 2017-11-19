@@ -23,17 +23,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp" />" />
     <!--<Button-->
-        <!--android:id="@+id/backbutton"-->
+    <!--android:id="@+id/backbutton"-->
 
-        <!--android:layout_width="39dp"-->
-        <!--android:layout_height="63dp"-->
-        <!--android:background="@drawable/backarr"-->
-        <!--android:layout_alignTop="@+id/studi"-->
-        <!--android:textSize="12sp"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_toLeftOf="@+id/linearLayout"-->
-        <!--android:layout_toStartOf="@+id/linearLayout" />-->
+    <!--android:layout_width="39dp"-->
+    <!--android:layout_height="63dp"-->
+    <!--android:background="@drawable/backarr"-->
+    <!--android:layout_alignTop="@+id/studi"-->
+    <!--android:textSize="12sp"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_toLeftOf="@+id/linearLayout"-->
+    <!--android:layout_toStartOf="@+id/linearLayout" />-->
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="80dp"
@@ -63,8 +63,10 @@
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:hint="      Course Number "
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="16sp"
+        android:gravity="center"
+
         android:layout_marginTop="15dp"
         android:layout_below="@+id/imageView4"
         android:layout_toRightOf="@+id/imageView4"
@@ -88,22 +90,22 @@
 
 
         <!--<Button-->
-            <!--android:id="@+id/testingradio"-->
+        <!--android:id="@+id/testingradio"-->
 
-            <!--android:layout_width="125dp"-->
-            <!--android:layout_height="match_parent" />-->
+        <!--android:layout_width="125dp"-->
+        <!--android:layout_height="match_parent" />-->
         <!--<EditText-->
-            <!--android:id="@+id/numerofppl"-->
-            <!--style="@style/editText_style"-->
-            <!--android:inputType="textPersonName"-->
-            <!--android:hint="Number of people"-->
-            <!--android:textSize="19sp"-->
-            <!--android:layout_weight="0.04" />-->
+        <!--android:id="@+id/numerofppl"-->
+        <!--style="@style/editText_style"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:hint="Number of people"-->
+        <!--android:textSize="19sp"-->
+        <!--android:layout_weight="0.04" />-->
         <!--<Button-->
-            <!--android:id="@+id/AddGroup"-->
-            <!--android:layout_width="154dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/groupbtn"/>-->
+        <!--android:id="@+id/AddGroup"-->
+        <!--android:layout_width="154dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/groupbtn"/>-->
     </LinearLayout>
 
     <Button
@@ -117,17 +119,17 @@
         android:layout_centerHorizontal="true" />
 
     <!--<TextView-->
-        <!--android:id="@+id/textView3"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="9dp"-->
-        <!--android:text="Current Time"-->
-        <!--android:textAlignment="center"-->
-        <!--android:textColor="@color/cardview_light_background"-->
-        <!--android:textSize="19sp"-->
-        <!--android:layout_below="@+id/button3"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true" />-->
+    <!--android:id="@+id/textView3"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="9dp"-->
+    <!--android:text="Current Time"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textColor="@color/cardview_light_background"-->
+    <!--android:textSize="19sp"-->
+    <!--android:layout_below="@+id/button3"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true" />-->
 
     <!--<TimePicker
         android:id="@+id/TimePicker1"
@@ -150,7 +152,7 @@
         android:textAlignment="center"
         android:textColor="@color/cardview_light_background"
         android:textSize="20sp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="14dp"
         android:layout_below="@+id/button3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -163,40 +165,64 @@
         android:timePickerMode="spinner"
 
         android:gravity="center"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_centerHorizontal="true" />
 
 
     <EditText
         android:id="@+id/desc"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_below="@+id/TimePicker2"
-        android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/descriptionbox"
         android:gravity="center"
-        android:hint="
-    (Ex:Floor number, orange shirt, red hat, pink jacket, etc.)
-          (40 Characters Max) "
+        android:hint="  (Ex:Floor number, orange shirt, red hat,
+                pink jacket, etc.)
+
+                                                                                                   (50 Characters Max) "
 
         android:inputType="textMultiLine|textShortMessage"
         android:textColorHint="@color/white"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_below="@+id/TimePicker2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hours"
+        android:textColor="@color/white"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minutes"
+        android:textColor="@color/white"
+
+        android:layout_below="@+id/textView4"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp" />
 
     <!--<TextView-->
-        <!--android:id="@+id/textView3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:text="(40 Characters Max) "-->
-        <!--android:textSize="14sp"-->
-        <!--android:textStyle="italic"-->
-        <!--android:layout_below="@+id/desc"-->
-        <!--android:layout_alignRight="@+id/button3"-->
-        <!--android:layout_alignEnd="@+id/button3" />-->
+    <!--android:id="@+id/textView3"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:text="(40 Characters Max) "-->
+    <!--android:textSize="14sp"-->
+    <!--android:textStyle="italic"-->
+    <!--android:layout_below="@+id/desc"-->
+    <!--android:layout_alignRight="@+id/button3"-->
+    <!--android:layout_alignEnd="@+id/button3" />-->
 
 
 </RelativeLayout>
