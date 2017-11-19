@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import static org.example.amylipsky.myapplication.R.id.AddGroup;
-import static org.example.amylipsky.myapplication.R.id.desc;
 
 
 public class CreateGroups extends AppCompatActivity {
@@ -110,11 +110,17 @@ public class CreateGroups extends AppCompatActivity {
         });
 
         final EditText _Course=(EditText) findViewById(R.id.courseprefix);
+        int maxLength1 = 3;
+        _Course.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength1)});
+
 
         final EditText descrip = (EditText) findViewById(R.id.desc);
         Button buttonAddGroup = (Button) findViewById(AddGroup);
         descrip.setTextColor(Color.WHITE);
         descrip.setSelection(descrip.length());
+        int maxLength = 50;
+        descrip.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
+
 
 
 
@@ -192,4 +198,3 @@ public class CreateGroups extends AppCompatActivity {
 
 
 }
-
