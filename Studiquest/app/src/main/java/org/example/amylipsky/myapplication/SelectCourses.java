@@ -52,8 +52,7 @@ public class SelectCourses extends AppCompatActivity {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MyClassesActivity.class);
-                startActivity(startIntent);
+                finish();
 
 
             }
@@ -75,6 +74,7 @@ public class SelectCourses extends AppCompatActivity {
             DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(Selections);
             myRef.setValue("true");
         }
+
 
 
     }
@@ -1073,7 +1073,7 @@ public class SelectCourses extends AppCompatActivity {
         final_text.setText(final_course_selectio);
         final_text.setEnabled(true);
 
-
+        finish();
     }
 
 

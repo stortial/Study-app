@@ -52,6 +52,11 @@ public class MyClassesActivity extends AppCompatActivity {
 
     }
 
+    //@Override
+    public void onBackPressed(){
+        finish();
+    }
+
 
 
 
@@ -70,8 +75,7 @@ public class MyClassesActivity extends AppCompatActivity {
 
 
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                startActivity(startIntent);
+                finish();
 
 
             }
