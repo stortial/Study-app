@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">Studiquest</string>
     <string name="google_maps">Find Friends Using Google Maps</string>
     <string name="my_classes">My Classes</string>
     <string name="select_courses">Select Courses</string>
@@ -52,7 +52,7 @@
     <string name="GER">GER</string>
     <string name="GGS">GGS</string>
     <string name="GLY">GLY</string>
-    <string name="GR">GRt</string>
+    <string name="GR">GR</string>
     <string name="GRE">GRE</string>
     <string name="HEB">HEB</string>
     <string name="HIN">HIN</string>
@@ -69,9 +69,7 @@
     <string name="LIN">LIN</string>
     <string name="LLS">LLS</string>
     <string name="MAE">MAE</string>
-
     <string name="MCH">MCH</string>
-
     <string name="MFC">MFC</string>
     <string name="MGA">MGA</string>
     <string name="MGB">MGB</string>

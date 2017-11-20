@@ -25,40 +25,30 @@ import java.util.ArrayList;
 
 
 
-public class SelectCourses extends AppCompatActivity {
+public class SelectCourses2 extends AppCompatActivity {
     ArrayList<String> selection = new ArrayList<String>();
     TextView final_text;
-
-
+    boolean isSelected = false;
+    public static String stringforcourse;
+/*
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     final String _User = currentUser.getUid(); //get Uid from Auth
-
+*/
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_courses);
-        final_text = (TextView) findViewById(R.id.finalResult);
-        final_text.setEnabled(false);
+        setContentView(R.layout.select_courses2);
+        //final_text = (TextView) findViewById(R.id.finalResult);
+        //final_text.setEnabled(false);
 
 
 
 
 
 
-        Button backarr =(Button) findViewById(R.id.backbutton);
-        backarr.setOnClickListener(new View.OnClickListener() {
 
-
-            public void onClick(View v) {
-                finish();
-
-
-            }
-
-
-        });
 
 
 
@@ -66,16 +56,15 @@ public class SelectCourses extends AppCompatActivity {
 
         //FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        System.out.println("before the for loop " + selection.size());
+        //System.out.println("before the for loop " + selection.size());
 
-
+/*
         for (String Selections : selection) {
             System.out.println(Selections);
-            DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(Selections);
-            myRef.setValue("true");
+            //DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(Selections);
+            //myRef.setValue("true");
         }
-
-
+*/
 
     }
 
@@ -88,6 +77,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("AAS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("AAS");
 
@@ -99,6 +90,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("AHI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("AAS");
 
@@ -108,6 +101,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("AMS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("AMS");
 
@@ -117,6 +112,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ANA");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ANS");
 
@@ -126,6 +123,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("APY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("APY");
 
@@ -135,6 +134,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ARC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ART");
 
@@ -144,6 +145,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ARI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ARI");
 
@@ -153,6 +156,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ART");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ART");
 
@@ -162,6 +167,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("AS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("AS");
 
@@ -171,6 +178,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ASL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ASL");
 
@@ -180,6 +189,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("BCH");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("BCH");
 
@@ -189,6 +200,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("BE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("BE");
 
@@ -198,6 +211,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("BIO");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("BIO");
 
@@ -207,6 +222,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("BMS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("BMS");
 
@@ -216,6 +233,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CDS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CDS");
 
@@ -225,6 +244,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CE");
 
@@ -234,6 +255,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CEP");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CEP");
 
@@ -243,6 +266,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CHB");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CHB");
 
@@ -252,6 +277,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CHE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CHE");
 
@@ -261,6 +288,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CHI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CHI");
 
@@ -270,6 +299,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CIE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CIE");
 
@@ -279,6 +310,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CL");
 
@@ -288,6 +321,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("COL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("COL");
 
@@ -297,6 +332,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("COM");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("COM");
 
@@ -306,6 +343,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CMP");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CPM");
 
@@ -315,6 +354,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("CSE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("CSE");
 
@@ -324,6 +365,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("DAC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("DAC");
 
@@ -333,6 +376,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("DMS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("DMS");
 
@@ -342,6 +387,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("EAS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("EAS");
 
@@ -351,6 +398,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ECO");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ECO");
 
@@ -360,6 +409,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("EE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("EE");
 
@@ -369,6 +420,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ELP");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ELP");
 
@@ -378,6 +431,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("END");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("END");
 
@@ -387,6 +442,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ENG");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ENG");
 
@@ -396,6 +453,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ES");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ES");
 
@@ -405,6 +464,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ESL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ESL");
 
@@ -414,6 +475,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("FR");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("FR");
 
@@ -423,6 +486,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GEO");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GEO");
 
@@ -432,6 +497,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GER");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GERT");
 
@@ -441,6 +508,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GGS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GGS");
 
@@ -450,6 +519,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GLY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GLY");
 
@@ -459,6 +530,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GR");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GR");
 
@@ -468,6 +541,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("GRE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("GRE");
 
@@ -477,6 +552,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("HEB");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("HEB");
 
@@ -486,6 +563,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("HIN");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("HIN");
 
@@ -495,6 +574,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("HIS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("HIS");
 
@@ -504,6 +585,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("HON");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("HON");
 
@@ -513,6 +596,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("IE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("IE");
 
@@ -522,6 +607,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ITA");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ITA");
 
@@ -531,6 +618,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("JDS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("JDS");
 
@@ -540,6 +629,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("JLS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("JLS");
 
@@ -549,6 +640,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("JPN");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("JPN");
 
@@ -558,6 +651,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("KOR");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("KOR");
 
@@ -567,6 +662,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("LAI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("LAI");
 
@@ -576,6 +673,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("LAT");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("LAT");
 
@@ -585,6 +684,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("LIN");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("LIN");
 
@@ -594,6 +695,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("LLS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("LLS");
 
@@ -603,6 +706,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MAE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MAE");
 
@@ -612,6 +717,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MCH");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MCH");
 
@@ -621,6 +728,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MFC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MFC");
 
@@ -630,6 +739,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGA");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGA");
 
@@ -639,6 +750,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGB");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGB");
 
@@ -648,6 +761,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MFC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MFC");
 
@@ -657,6 +772,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGG");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGG");
 
@@ -666,6 +783,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGI");
 
@@ -675,6 +794,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGM");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGM");
                 }
@@ -683,6 +804,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGO");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGO");
 
@@ -692,6 +815,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGQ");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGQ");
 
@@ -701,6 +826,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGS");
 
@@ -710,6 +837,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MGT");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MGT");
 
@@ -719,6 +848,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MIC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MIC");
 
@@ -728,6 +859,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MLS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MLS");
 
@@ -737,6 +870,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MT");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MT");
 
@@ -746,6 +881,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MTH");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MTH");
 
@@ -755,6 +892,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MTR");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MTR");
 
@@ -764,6 +903,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("MUS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("MUS");
 
@@ -773,6 +914,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("NBC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("NBC");
 
@@ -782,6 +925,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("NBS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("NBS");
 
@@ -791,6 +936,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("NMD");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("NMD");
 
@@ -801,6 +948,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("NSG");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("NSG");
 
@@ -810,6 +959,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("NTR");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("NTR");
 
@@ -819,6 +970,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("OT");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("OT");
 
@@ -828,6 +981,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PGY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PGY");
 
@@ -837,6 +992,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PHC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PHC");
 
@@ -846,6 +1003,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PHI");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PHI");
 
@@ -855,6 +1014,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PHM");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PHM");
 
@@ -864,6 +1025,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PHY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PHY");
 
@@ -873,6 +1036,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PMY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PMY");
 
@@ -882,6 +1047,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("POL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("POL");
 
@@ -891,6 +1058,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PS");
 
@@ -900,6 +1069,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PSC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PSC");
 
@@ -909,6 +1080,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PSY");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PSY");
 
@@ -918,6 +1091,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("PUB");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("PUB");
 
@@ -927,6 +1102,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("REC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("REC");
 
@@ -936,8 +1113,11 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("RLL");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("RLL");
+
 
                 }
                 break;
@@ -945,6 +1125,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("RSP");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("RSP");
 
@@ -956,6 +1138,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("RUS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("RUS");
 
@@ -965,6 +1149,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("SOC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("SOC");
 
@@ -974,6 +1160,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("SPA");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("SPA");
 
@@ -983,6 +1171,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("SSC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("SSC");
 
@@ -992,6 +1182,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("STA");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("STA");
 
@@ -1001,6 +1193,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("TH");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("TH");
 
@@ -1010,6 +1204,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("UE");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("UE");
 
@@ -1019,6 +1215,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("UGC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("UGC");
 
@@ -1028,6 +1226,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("ULC");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("ULC");
 
@@ -1037,6 +1237,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("VS");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("VS");
 
@@ -1046,6 +1248,8 @@ public class SelectCourses extends AppCompatActivity {
 
                 if (checked) {
                     selection.add("YID");
+                    isSelected=true;
+                    break;
                 } else {
                     selection.remove("YID");
 
@@ -1054,9 +1258,29 @@ public class SelectCourses extends AppCompatActivity {
 
 
         }
+
+        stringforcourse = selection.get(0);
+
+
+
+        if (isSelected == true)
+        {
+            finish();
+
+            //Intent startIntent = new Intent(getApplicationContext(), CreateGroups.class);
+            //startActivity(startIntent);
+        }
+
+        isSelected = false;
+
     }
 
 
+
+
+
+
+/*
     public void finalSelection(View view) {
 
         String final_course_selectio = "";
@@ -1073,8 +1297,8 @@ public class SelectCourses extends AppCompatActivity {
         final_text.setText(final_course_selectio);
         final_text.setEnabled(true);
 
-        finish();
+
     }
 
-
+*/
 }
