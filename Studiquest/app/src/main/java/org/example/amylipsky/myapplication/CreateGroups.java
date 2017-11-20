@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -49,10 +50,14 @@ public class CreateGroups extends AppCompatActivity {
     Button testing;
     private String theCourse = "";
 
+    TextView displayCourse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
+
+        displayCourse = (TextView)findViewById(R.id.displayTheCourse);
 
         final TimePicker tp = (TimePicker) this.findViewById(R.id.TimePicker2);
         tp.setIs24HourView(true);
@@ -169,7 +174,7 @@ public class CreateGroups extends AppCompatActivity {
                 if(tp.getHour() < 24){
                     endtime += 60*60*1000*(tp.getHour());
                 }
-                if(tp.getMinute() < 10){
+                if(tp.getMinute() < 60){
                     endtime += 60*1000*(tp.getMinute());
                 }
                /* String endtime = "";
@@ -196,6 +201,13 @@ public class CreateGroups extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        displayCourse.setText(SelectCourses2.stringforcourse);
+
+    }
 
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
