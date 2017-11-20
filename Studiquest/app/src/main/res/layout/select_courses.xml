@@ -1039,17 +1039,20 @@
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
         <Button
-            android:layout_width="241dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selecteditems"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/blank"
+            android:text="Confirm"
+            android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             android:onClick="finalSelection" />
-        <Button
+        <!--<Button
             android:id="@+id/backbutton"
 
             android:layout_width="42dp"
             android:layout_height="37dp"
-            android:background="@drawable/backarr"/>
+            android:background="@drawable/backarr"/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

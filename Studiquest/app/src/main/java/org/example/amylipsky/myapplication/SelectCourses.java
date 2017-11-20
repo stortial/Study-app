@@ -47,20 +47,6 @@ public class SelectCourses extends AppCompatActivity {
 
 
 
-        Button backarr =(Button) findViewById(R.id.backbutton);
-        backarr.setOnClickListener(new View.OnClickListener() {
-
-
-            public void onClick(View v) {
-                finish();
-
-
-            }
-
-
-        });
-
-
 
 
 
