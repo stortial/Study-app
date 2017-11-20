@@ -1038,18 +1038,7 @@
             android:textStyle="bold"
             style="@style/forcheck_box"
             android:onClick="selectedItem"/>
-        <Button
-            android:layout_width="241dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selecteditems"
-            android:layout_gravity="center_horizontal"
-            android:onClick="finalSelection" />
-        <Button
-            android:id="@+id/backbutton"
 
-            android:layout_width="42dp"
-            android:layout_height="37dp"
-            android:background="@drawable/backarr"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1057,5 +1046,5 @@
             android:textColor="#F6F9FBFC"
             android:text=" "/>
 
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</ScrollView>

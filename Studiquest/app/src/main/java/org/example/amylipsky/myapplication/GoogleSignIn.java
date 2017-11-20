@@ -2,6 +2,7 @@ package org.example.amylipsky.myapplication;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -45,16 +46,25 @@ public class GoogleSignIn extends BaseActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.google_signin);
+        setContentView(R.layout.newgoogle_signin);
 
-
-//
-//        // Views
-//        mStatusTextView = findViewById(R.id.status);
-        //mDetailTextView = findViewById(R.id.detail);
-
+        Button register = (Button) findViewById(R.id.button2);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v){
+                String google = "https://accounts.google.com/SignUp?hl=en";
+                Uri webaddress = Uri.parse(google);
+                //will go outside our app and lauch this weblink
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress);
+                //well check if there is a possibility another app can lauch our request
+                if (gotoGoogle.resolveActivity(getPackageManager()) != null) {
+                    startActivity(gotoGoogle);
+                }
+            }
+        });
         // Button listeners
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+
+        findViewById(R.id.button1).setOnClickListener(this);
         //  findViewById(R.id.sign_out_button).setOnClickListener(this);
         //  findViewById(R.id.disconnect_button).setOnClickListener(this);
 
@@ -188,10 +198,10 @@ public class GoogleSignIn extends BaseActivity implements
             Intent myIntent = new Intent(GoogleSignIn.this, MainMenu.class);
             startActivity(myIntent);
 
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+            findViewById(R.id.button1).setVisibility(View.GONE);
         } else {
 
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+            findViewById(R.id.button1).setVisibility(View.VISIBLE);
         }
     }
 
@@ -204,10 +214,12 @@ public class GoogleSignIn extends BaseActivity implements
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
 
+
+
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.sign_in_button) {
+        if (i == R.id.button1) {
             signIn();
 //        } else if (i == R.id.sign_out_button) {
 //            signOut();
