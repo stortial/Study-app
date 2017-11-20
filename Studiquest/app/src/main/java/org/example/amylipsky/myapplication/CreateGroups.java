@@ -16,6 +16,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -184,6 +185,10 @@ public class CreateGroups extends AppCompatActivity {
 
                 long StartTime = System.currentTimeMillis();
                 groupRef.child(groupID).child("timestamp").setValue(StartTime + endtime);
+
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                final String _User = currentUser.getUid(); //get Uid from Auth
+                groupRef.child(groupID).child("User").setValue(_User);
 
 
                 finish();
