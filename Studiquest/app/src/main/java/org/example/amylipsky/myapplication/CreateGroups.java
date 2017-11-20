@@ -12,10 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,7 @@ import static org.example.amylipsky.myapplication.R.id.AddGroup;
 
 public class CreateGroups extends AppCompatActivity {
 
-    private FirebaseDatabase database;
+    //private FirebaseDatabase database;
     private DatabaseReference groupRef;
     private DatabaseReference groupKey;
     private DatabaseReference initialize;
@@ -46,15 +48,25 @@ public class CreateGroups extends AppCompatActivity {
     private static final String TAG = "DataBase";
     Button button, prefixbtn;
     Button testing;
-    private String theCourse = "";
+    private String locationSelected = "";
+
+    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final String _User = currentUser.getUid();
+
+    TextView displayCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group);
 
+        displayCourse = (TextView)findViewById(R.id.displayTheCourse);
+
         final TimePicker tp = (TimePicker) this.findViewById(R.id.TimePicker2);
         tp.setIs24HourView(true);
+        tp.setHour(0);
+        tp.setMinute(0);
 
 //        Button backarr = (Button) findViewById(R.id.backbutton);
 //        backarr.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +96,8 @@ public class CreateGroups extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(CreateGroups.this, " " + item.getTitle(), Toast.LENGTH_LONG).show();
-                        groupRef.child(groupID).child("locations").setValue(item.getTitle());
+                        //groupRef.child(groupID).child("locations").setValue(item.getTitle());
+                        locationSelected = item.getTitle().toString();
                         return true;
                     }
 
@@ -151,26 +164,41 @@ public class CreateGroups extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Attempting to add object to database.");
-                String course = SelectCourses2.stringforcourse + _Course.getText().toString();
-                String descriptions = descrip.getText().toString();
 
-                if (!course.equals("")) {
-                    groupRef.child(groupID).child("course").setValue(course);
-                    toastMessage("Adding " + course + " to database...");
+                if (SelectCourses2.stringforcourse != null)
+                {
+                    if (!(_Course.getText().toString().isEmpty()))
+                    {
+                        if(!(locationSelected.isEmpty()))
+                        {
+                            DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(SelectCourses2.stringforcourse);
+                            myRef.setValue("true");
 
-                }
 
-                if (!descriptions.equals("")) {
-                    groupRef.child(groupID).child("description").setValue(descriptions);
+                            String course = SelectCourses2.stringforcourse + _Course.getText().toString();
+                            String descriptions = descrip.getText().toString();
+
+
+                            if (!course.equals("")) {
+                                groupRef.child(groupID).child("course").setValue(course);
+                                toastMessage("Adding " + course + " to database...");
+
+                            }
+
+                            if (!descriptions.equals("")) {
+                                groupRef.child(groupID).child("description").setValue(descriptions);
+
+                            
 
                 }
                 long endtime = 0;
                 if(tp.getHour() < 24){
                     endtime += 60*60*1000*(tp.getHour());
                 }
-                if(tp.getMinute() < 10){
+                if(tp.getMinute() < 60){
                     endtime += 60*1000*(tp.getMinute());
                 }
+
                /* String endtime = "";
                 if(tp.getHour() < 24){
                     endtime += (tp.getHour());
@@ -182,15 +210,40 @@ public class CreateGroups extends AppCompatActivity {
                 }
                 endtime += tp.getMinute();*/
 
-                long StartTime = System.currentTimeMillis();
-                groupRef.child(groupID).child("timestamp").setValue(StartTime + endtime);
+                            long StartTime = System.currentTimeMillis();
+                            groupRef.child(groupID).child("timestamp").setValue(StartTime + endtime);
 
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            final String _User = currentUser.getUid(); //get Uid from Auth
+                            groupRef.child(groupID).child("User").setValue(_User);
 
-                finish();
+                            groupRef.child(groupID).child("locations").setValue(locationSelected);
+                            finish();
+                        }
+                        else
+                            toastMessage("Please select a location");
+
+                    }
+                    else
+                        toastMessage("Please enter a Course Number");
+
+                }
+                else
+                {
+                    toastMessage("Please select a Course Prefix");
+                }
+
             }
         });
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        displayCourse.setText(SelectCourses2.stringforcourse);
+
+    }
 
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
