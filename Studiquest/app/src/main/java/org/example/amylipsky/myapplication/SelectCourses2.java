@@ -1256,7 +1256,6 @@ public class SelectCourses2 extends AppCompatActivity {
                 }
                 break;
 
-
         }
 
         stringforcourse = selection.get(0);

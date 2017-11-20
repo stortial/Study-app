@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main2"
+    android:gravity="center"
 
-    android:layout_alignParentBottom="true"
     tools:context="org.example.amylipsky.myapplication.CreateGroups"
     android:background="@drawable/blueback">
 
@@ -15,10 +15,11 @@
 
         android:id="@+id/AddGroup"
         android:layout_width="188dp"
-        android:layout_height="54dp"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:background="@drawable/startgroupbtn"
-
+        android:background="@drawable/blank"
+        android:text="Start Group"
+        android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp" />" />
@@ -34,44 +35,56 @@
     <!--android:layout_alignParentStart="true"-->
     <!--android:layout_toLeftOf="@+id/linearLayout"-->
     <!--android:layout_toStartOf="@+id/linearLayout" />-->
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView4"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/smallstudi"
-        android:layout_marginTop="24dp"
+        android:layout_margin="15dp"
         android:gravity="center"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" />-->
 
     <Button
 
         android:id="@+id/location"
-        android:background="@drawable/courseprefixbtn"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_alignBaseline="@+id/courseprefix"
-        android:layout_alignBottom="@+id/courseprefix"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp" />
+        android:background="@drawable/blank"
+        android:text="Course Prefix"
+        android:textColor="@color/white"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/courseprefix"
+        android:layout_alignLeft="@+id/desc"
+        android:layout_alignStart="@+id/desc" />
 
     <EditText
         android:id="@+id/courseprefix"
         android:background="@drawable/coursenumber"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:hint="      Course Number "
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:hint="Course Number"
         android:inputType="number"
         android:textSize="16sp"
         android:gravity="center"
 
-        android:layout_marginTop="15dp"
         android:layout_below="@+id/imageView4"
-        android:layout_toRightOf="@+id/imageView4"
-        android:layout_toEndOf="@+id/imageView4" />
+        android:layout_alignRight="@+id/desc"
+        android:layout_alignEnd="@+id/desc"
+        android:layout_marginTop="70dp"/>
 
+    <TextView
+        android:id="@+id/displayTheCourse"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:textColor="@color/smokyBlack"
+        android:textSize="17sp"
+        android:background="@drawable/coursenumber"
+        android:layout_above="@+id/button3"
+        android:layout_toRightOf="@+id/location"
+        android:layout_toEndOf="@+id/location"
+        android:layout_alignTop="@+id/location" />
 
 
 
@@ -108,15 +121,22 @@
         <!--android:background="@drawable/groupbtn"/>-->
     </LinearLayout>
 
+
     <Button
         android:id="@+id/button3"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:background="@drawable/locbtn"
-
-        android:layout_marginTop="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/blank"
+        android:text="Location"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/location"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/courseprefix"
+        android:layout_alignEnd="@+id/courseprefix"
+        android:layout_alignLeft="@+id/location"
+        android:layout_alignStart="@+id/location" />
+
+
 
     <!--<TextView-->
     <!--android:id="@+id/textView3"-->
@@ -152,7 +172,7 @@
         android:textAlignment="center"
         android:textColor="@color/cardview_light_background"
         android:textSize="20sp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/button3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -165,7 +185,7 @@
         android:timePickerMode="spinner"
 
         android:gravity="center"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true" />
 
@@ -175,11 +195,10 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
 
-        android:layout_marginTop="28dp"
-        android:background="@drawable/descriptionbox"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/blank"
         android:gravity="center"
-        android:hint="  (Ex:Floor number, orange shirt, red hat,
-                pink jacket, etc.)
+        android:hint="  (Ex:Floor number, orange shirt, red hat, pink jacket, etc.)
 
                                                                                                    (50 Characters Max) "
 
@@ -196,8 +215,8 @@
         android:text="Hours"
         android:textColor="@color/white"
         android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_alignLeft="@+id/AddGroup"
+        android:layout_alignStart="@+id/AddGroup" />
 
     <TextView
         android:id="@+id/textView5"
@@ -207,10 +226,8 @@
         android:textColor="@color/white"
 
         android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_alignRight="@+id/AddGroup"
+        android:layout_alignEnd="@+id/AddGroup" />
 
     <!--<TextView-->
     <!--android:id="@+id/textView3"-->
