@@ -7,51 +7,86 @@
 
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
 android:layout_height="match_parent"
 android:layout_gravity="center"
-android:paddingBottom="10dp"
+
+    android:paddingBottom="10dp"
 android:paddingLeft="10dp"
 android:paddingRight="10dp"
-android:paddingTop="10dp"
-android:layout_alignParentBottom="true"
-android:weightSum="1">
+    android:background="@drawable/clips"
+
+    android:paddingTop="10dp"
+        android:weightSum="1"
+    android:id="@+id/linearLayout2">
 
 <TextView
     android:id="@+id/mycourses"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="0.32"
     android:ems="10"
     android:gravity="center"
-    android:layout_margin="5dp"
+    android:layout_marginTop="130dp"
+    android:textStyle="bold"
+    android:textColor="#FB03051A"
     android:inputType="textPersonName"
     android:text="My Courses"
+
     android:textSize="25sp" />
 
 <GridLayout
     android:layout_width="match_parent"
-    android:layout_height="326dp">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:textColor="#F6F9FBFC"
+
+
+        android:layout_height="250dp"
         android:scrollbars="vertical" />
 
 
 </GridLayout>
 
-<Button
-    android:id="@+id/addClasses"
-    style="@style/button_style"
-    android:layout_width="match_parent"
-    android:layout_height="42dp"
-    android:layout_marginTop="13dp"
-    android:text="Add Classes" />
+    <Button
+        android:id="@+id/addClasses"
+
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:text="Add Classes"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/blank" />
+
+    <Button
+        android:id="@+id/removeClass"
+        android:text="Remove Classes"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/blank" />
+
+
+
+
+
 
 
 </LinearLayout>
+

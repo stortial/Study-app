@@ -17,8 +17,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Created by Melis on 10/7/2017.
@@ -28,10 +30,37 @@ public class MyClassesActivity extends AppCompatActivity {
 
 
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     final String _User = currentUser.getUid(); //get Uid from Auth
 
+    public static class MyPair {
+        private final String key;
+        private final boolean value;
 
-    ArrayList<String> courselist = new ArrayList<String>();
+        public MyPair(String aKey, boolean aValue) {
+            key = aKey;
+            value = aValue;
+        }
+
+        public String key() {
+            return key;
+        }
+
+        public boolean value() {
+            return value;
+        }
+
+    }
+
+    //@Override
+    public void onBackPressed(){
+        finish();
+    }
+
+
+
+
+    ArrayList<MyPair> courselist = new ArrayList<MyPair>();
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -40,6 +69,8 @@ public class MyClassesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myclasses_main);
+
+
 
 
         Button buttonAddClass = (Button) findViewById(R.id.addClasses);
@@ -56,6 +87,27 @@ public class MyClassesActivity extends AppCompatActivity {
 
         });
 
+        Button buttonRemoveClass = (Button) findViewById(R.id.removeClass);
+        buttonRemoveClass.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                Iterator<MyPair> iter = courselist.iterator();
+                while(iter.hasNext()) {
+                    MyPair pair = iter.next();
+                    if (pair.value) {
+                        DatabaseReference myRef = database.getReference("users").child(_User).child("Courses").child(pair.key);
+                        myRef.removeValue();
+                        iter.remove();
+                    }
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+
+        });
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users").child(_User).child("Courses");
@@ -64,11 +116,15 @@ public class MyClassesActivity extends AppCompatActivity {
         myRef.orderByKey().addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                //System.out.println(dataSnapshot.getKey());
+//                System.out.println(dataSnapshot.getKey());
                 /// add to arraylist
-
-
-                courselist.add(dataSnapshot.getKey());
+                courselist.add(new MyPair(dataSnapshot.getKey(), false));
+                Collections.sort(courselist, new Comparator<MyPair>() {
+                    @Override
+                    public int compare(MyPair pair1, MyPair pair2) {
+                        return pair1.key.compareTo(pair2.key);
+                    }
+                });
                 mAdapter.notifyDataSetChanged();
 
                 // update list view
